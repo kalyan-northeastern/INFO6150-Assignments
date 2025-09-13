@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Innovation Hub - Exploring Tomorrow's Technology</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header with navigation -->
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>🚀 Tech Innovation Hub</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#technologies">Technologies</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main content sections -->
+    <main>
+        <div class="main-content">
+            <!-- Hero section -->
+            <section id="home" class="hero">
+                <h2>Welcome to the Future of Technology</h2>
+                <p>Discover cutting-edge innovations that are shaping tomorrow's world</p>
+                <button class="cta-button">Explore Now</button>
+            </section>
+
+            <!-- Technologies section -->
+            <section id="technologies" class="technologies">
+                <h2>Emerging Technologies</h2>
+
+                <!-- Article about AI -->
+                <article class="tech-article">
+                    <h3>Artificial Intelligence Revolution</h3>
+                    <figure>
+                        <img src="images/AI.jpg" alt="AI Technology Visualization" width="400" height="250">
+                        <figcaption>AI systems transforming industries worldwide</figcaption>
+                    </figure>
+                    <p>Artificial Intelligence is revolutionizing how we work, live, and interact with technology. From machine learning algorithms to neural networks, AI is creating unprecedented opportunities.</p>
+
+                    <!-- Technology comparison table -->
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technology</th>
+                                <th>Year Introduced</th>
+                                <th>Impact Level</th>
+                                <th>Adoption Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Machine Learning</td>
+                                <td>1950s</td>
+                                <td>High</td>
+                                <td>85%</td>
+                            </tr>
+                            <tr>
+                                <td>Deep Learning</td>
+                                <td>2010s</td>
+                                <td>Very High</td>
+                                <td>70%</td>
+                            </tr>
+                            <tr>
+                                <td>Natural Language Processing</td>
+                                <td>1960s</td>
+                                <td>High</td>
+                                <td>90%</td>
+                            </tr>
+                            <tr>
+                                <td>Computer Vision</td>
+                                <td>1980s</td>
+                                <td>Very High</td>
+                                <td>75%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Details and Summary -->
+                    <details>
+                        <summary>Learn More About AI Applications</summary>
+                        <p>AI is being used in healthcare for drug discovery, in finance for fraud detection, in transportation for autonomous vehicles, and in entertainment for personalized content recommendations.</p>
+                    </details>
+                </article>
+
+                <!-- Article about Quantum Computing -->
+                <article class="tech-article">
+                    <h3>Quantum Computing Breakthrough</h3>
+                    <figure>
+                        <img src="https://www.bing.com/th/id/OIP.NCFYSVYfJCjaNma8qyEdBAHaE7?w=282&h=211&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="Quantum Computer Visualization" width="400" height="250">
+                        <figcaption>Quantum computers solving complex problems</figcaption>
+                    </figure>
+                    <p>Quantum computing represents a paradigm shift in computational power, promising to solve problems that are intractable for classical computers.</p>
+
+                    <details>
+                        <summary>Quantum Computing Benefits</summary>
+                        <p>Quantum computers can process vast amounts of data simultaneously, making them ideal for cryptography, optimization problems, and scientific simulations.</p>
+                    </details>
+                </article>
+            </section>
+
+            <!-- Contact section with form -->
+            <section id="contact" class="contact">
+                <h2>Get In Touch</h2>
+                <p>Have questions about emerging technologies? We'd love to hear from you!</p>
+
+                <form action="#contact-form" method="post" id="contact-form">
+                    <fieldset>
+                        <legend>Contact Information</legend>
+
+                        <label for="name">Full Name:</label>
+                        <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+
+                        <label for="password">Password (for account creation):</label>
+                        <input type="password" id="password" name="password" minlength="8" placeholder="Minimum 8 characters">
+
+                        <label for="interest">Technology Interest:</label>
+                        <input list="technologies" id="interest" name="interest" placeholder="Select or type your interest">
+                        <datalist id="technologies">
+                        <option value="Artificial Intelligence">
+                        <option value="Quantum Computing">
+                        <option value="Blockchain">
+                        <option value="IoT">
+                        <option value="Robotics">
+                        <option value="Virtual Reality">
+                    </datalist>
+
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" cols="50" placeholder="Tell us about your technology interests..." required></textarea>
+
+                        <button type="submit" id="submit-btn">Send Message</button>
+                        <button type="reset" id="reset-btn">Clear Form</button>
+                    </fieldset>
+                </form>
+            </section>
+
+            <!-- About section -->
+            <section id="about" class="about">
+                <h2>About Tech Innovation Hub</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Our Mission</h3>
+                        <p>Tech Innovation Hub is dedicated to exploring and showcasing the latest technological breakthroughs that are shaping our future. We believe in making cutting-edge technology accessible and understandable to everyone.</p>
+
+                        <h3>What We Do</h3>
+                        <ul>
+                            <li>Research and analyze emerging technologies</li>
+                            <li>Create educational content about AI, quantum computing, and more</li>
+                            <li>Connect technology enthusiasts and professionals</li>
+                            <li>Provide insights into the future of technology</li>
+                        </ul>
+
+                        <h3>Our Team</h3>
+                        <p>Our team consists of technology experts, researchers, and educators who are passionate about innovation and knowledge sharing.</p>
+                    </div>
+
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h4>50+</h4>
+                            <p>Technologies Explored</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>1000+</h4>
+                            <p>Articles Published</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>10K+</h4>
+                            <p>Community Members</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Aside for additional information -->
+        <aside class="sidebar">
+            <div class="aside-section">
+                <h3>🔗 Quick Links</h3>
+                <ul>
+                    <li><a href="https://www.nature.com" target="_blank">Nature Technology</a></li>
+                    <li><a href="https://www.technologyreview.com" target="_blank">MIT Technology Review</a></li>
+                    <li><a href="https://www.wired.com" target="_blank">Wired Magazine</a></li>
+                    <li><a href="https://www.techcrunch.com" target="_blank">TechCrunch</a></li>
+                </ul>
+            </div>
+
+            <div class="aside-section">
+                <h3>📞 Contact Information</h3>
+                <p>📞 Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                <p>📧 Email: <a href="mailto:info@techinnovationhub.com">info@techinnovationhub.com</a></p>
+                <p>📍 Address: 123 Innovation Drive, Tech City, TC 12345</p>
+            </div>
+
+            <div class="aside-section">
+                <h3>📊 Technology Trends</h3>
+                <div class="trend-item">
+                    <span class="trend-name">AI Adoption</span>
+                    <div class="trend-bar">
+                        <div class="trend-fill" style="width: 85%"></div>
+                    </div>
+                    <span class="trend-percent">85%</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-name">Quantum Computing</span>
+                    <div class="trend-bar">
+                        <div class="trend-fill" style="width: 45%"></div>
+                    </div>
+                    <span class="trend-percent">45%</span>
+                </div>
+                <div class="trend-item">
+                    <span class="trend-name">IoT Devices</span>
+                    <div class="trend-bar">
+                        <div class="trend-fill" style="width: 70%"></div>
+                    </div>
+                    <span class="trend-percent">70%</span>
+                </div>
+            </div>
+
+            <div class="aside-section">
+                <h3>🎧 Tech Podcast</h3>
+                <audio controls>
+                <source src="audio/tech-podcast.mp3" type="audio/mpeg">
+                <source src="audio/tech-podcast.ogg" type="audio/ogg">
+                Your browser does not support the audio element.
+            </audio>
+                <p class="podcast-desc">Listen to our latest episode on AI breakthroughs</p>
+            </div>
+
+            <div class="aside-section">
+                <h3>🎥 Innovation Video</h3>
+                <video width="320" height="240" controls>
+                <source src="https://youtu.be/vWBpzveKvGA?si=aSXgbUW7wTkJ-Q5H" type="video/mp4">
+                <source src="https://youtu.be/vWBpzveKvGA?si=aSXgbUW7wTkJ-Q5H" type="video/webm">
+                Your browser does not support the video element.
+            </video>
+                <p class="video-desc">Watch our innovation showcase</p>
+            </div>
+
+            <div class="aside-section">
+                <h3>📧 Newsletter</h3>
+                <p>Subscribe to our weekly tech updates:</p>
+                <form class="newsletter-form" action="#newsletter-subscribed" method="post" id="newsletter-subscribed">
+                    <input type="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Tech Innovation Hub</h4>
+                <p>Exploring tomorrow's technology today</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#technologies">Technologies</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>📧 <a href="mailto:contact@techinnovationhub.com">contact@techinnovationhub.com</a></p>
+                <p>📞 <a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Tech Innovation Hub. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
