@@ -1,7 +1,4 @@
-/* Tech Innovation Hub - External CSS Styles */
 
-
-/* Reset and base styles */
 
 * {
     margin: 0;
@@ -58,12 +55,6 @@ nav {
 }
 
 
-/* .nav-links a:hover {
-    color: #00020a;
-} */
-
-
-/* Main content layout - following wireframe structure */
 
 body {
     display: flex;
@@ -92,7 +83,7 @@ main {
 }
 
 
-/* Hero section */
+
 
 .hero {
     text-align: center;
@@ -122,20 +113,11 @@ main {
     padding: 1rem 2rem;
     font-size: 1.1rem;
     border-radius: 50px;
-    /* cursor: pointer; */
-    /* transition: all 0.3s ease; */
-    /* box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); */
+   
 }
 
 
-/* .cta-button:hover {
-    background: #ff5252;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-} */
 
-
-/* Technologies section */
 
 .technologies {
     margin-bottom: 3rem;
@@ -171,7 +153,7 @@ main {
 }
 
 
-/* Figure and figcaption */
+
 
 figure {
     text-align: center;
@@ -185,9 +167,7 @@ figure img {
 }
 
 
-/* figure img:hover {
-    transform: scale(1.05);
-} */
+
 
 figcaption {
     font-style: italic;
@@ -197,7 +177,7 @@ figcaption {
 }
 
 
-/* Table styles */
+
 
 table {
     width: 100%;
@@ -223,12 +203,7 @@ th {
 }
 
 
-/* tr:hover {
-    background: #f8f9ff;
-} */
 
-
-/* Details and Summary */
 
 details {
     margin: 1.5rem 0;
@@ -246,13 +221,7 @@ summary {
 }
 
 
-/* 
-summary:hover {
-    color: #1e0933;
-} */
 
-
-/* Contact section */
 
 .contact {
     background: white;
@@ -276,7 +245,7 @@ summary:hover {
 }
 
 
-/* Form styles */
+
 
 form {
     max-width: 600px;
@@ -337,14 +306,11 @@ button {
     cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    /* transition: all 0.3s ease; */
+    
 }
 
 
-/* button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(1, 3, 12, 0.3);
-} */
+
 
 button[type="reset"] {
     background: linear-gradient(45deg, #ff6b6b, #ee5a52);
@@ -355,7 +321,7 @@ button[type="reset"]:hover {
 }
 
 
-/* About section */
+
 
 .about {
     background: white;
@@ -426,7 +392,7 @@ button[type="reset"]:hover {
 }
 
 
-/* Aside sidebar - positioned on the right side of main */
+
 
 aside {
     background: white;
@@ -467,27 +433,20 @@ aside li {
     margin: 0.5rem 0;
     padding: 0.5rem;
     border-radius: 5px;
-    /* transition: background-color 0.3s ease; */
+   
 }
 
 
-/* aside li:hover {
-    background-color: #f8f9ff;
-} */
+
 
 aside a {
     color: #333;
     text-decoration: none;
-    /* transition: color 0.3s ease; */
+    
 }
 
 
-/* aside a:hover {
-    color: #010411;
-} */
 
-
-/* Technology trends */
 
 .trend-item {
     display: flex;
@@ -525,7 +484,7 @@ aside a {
 }
 
 
-/* Newsletter form */
+
 
 .newsletter-form {
     display: flex;
@@ -567,7 +526,7 @@ aside a {
 }
 
 
-/* Audio and Video styles */
+
 
 audio,
 video {
@@ -578,7 +537,7 @@ video {
 }
 
 
-/* Footer */
+
 
 footer {
     background: rgba(255, 255, 255, 0.95);
@@ -629,7 +588,7 @@ footer {
 }
 
 
-/* Responsive design */
+
 
 @media (max-width: 768px) {
     nav {
@@ -681,41 +640,23 @@ footer {
         position: static;
         margin-top: 2rem;
         order: -1;
-        /* Move aside above main content on mobile */
+        
     }
 }
 
 
-/* Animation effects */
-
-
-/* @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.tech-article {
-    animation: fadeInUp 0.6s ease-out;
+on: fadeInUp 0.6s ease-out;
 } */
 
 
-/* Smooth scrolling */
+
 
 html {
     scroll-behavior: smooth;
 }
 
 
-/* CSS-only Interactive Functionality */
 
-
-/* Button click animations */
 
 button {
     position: relative;
@@ -723,10 +664,7 @@ button {
 }
 
 
-/* button:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
-} */
+
 
 button:focus {
     outline: 3px solid rgba(0, 2, 12, 0.5);
@@ -734,7 +672,7 @@ button:focus {
 }
 
 
-/* Form validation styling */
+
 
 input:invalid {
     border-color: #ff6b6b;
@@ -755,7 +693,7 @@ input:required:valid {
 }
 
 
-/* Form submission feedback */
+
 
 form:target {
     animation: formSubmitted 2s ease-in-out;
@@ -775,7 +713,7 @@ form:target {
 }
 
 
-/* Newsletter form styling */
+
 
 .newsletter-form:target {
     animation: newsletterSubscribed 2s ease-in-out;
@@ -795,7 +733,7 @@ form:target {
 }
 
 
-/* Details/Summary enhanced styling */
+
 
 details summary {
     cursor: pointer;
@@ -822,21 +760,16 @@ details[open] {
 }
 
 
-/* Table row interactions */
+
 
 table tbody tr {
     transition: all 0.3s ease;
 }
 
 
-/* table tbody tr:hover {
-    background-color: #e8f2ff;
-    transform: scale(1.01);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-} */
 
 
-/* Image hover effects */
+
 
 figure img {
     transition: all 0.3s ease;
@@ -844,13 +777,7 @@ figure img {
 }
 
 
-/* figure img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-} */
 
-
-/* Navigation link active states */
 
 .nav-links a:target {
     color: #000000;
@@ -859,7 +786,7 @@ figure img {
 }
 
 
-/* Section visibility on navigation */
+
 
 section:target {
     animation: sectionHighlight 1s ease-in-out;
@@ -878,21 +805,7 @@ section:target {
 }
 
 
-/* Aside section interactions */
 
-
-/* .aside-section {
-    transition: all 0.3s ease;
-}
-
-.aside-section:hover {
-    transform: translateX(5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #ffffff, #f8f9ff);
-} */
-
-
-/* Audio/Video enhanced styling */
 
 audio,
 video {
@@ -906,7 +819,7 @@ video:hover {
 }
 
 
-/* Contact form enhanced styling */
+
 
 .contact:target {
     animation: contactFormSubmitted 3s ease-in-out;
@@ -934,7 +847,7 @@ video:hover {
 }
 
 
-/* Technology trends animation */
+
 
 .trend-fill {
     animation: trendFill 2s ease-in-out;
@@ -950,7 +863,7 @@ video:hover {
 }
 
 
-/* About section stats animation */
+
 
 .stat-item {
     animation: statCountUp 2s ease-in-out;
@@ -972,76 +885,7 @@ video:hover {
 }
 
 
-/* CTA button special effects */
 
-
-/* 
-.cta-button {
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.cta-button:hover::before {
-    left: 100%;
-} */
-
-
-/* Form field focus effects */
-
-
-/* input:focus,
-textarea:focus {
-    transform: scale(1.02);
-    box-shadow: 0 0 10px rgba(0, 2, 12, 0.3);
-} */
-
-
-/* Link hover effects */
-
-
-/* a {
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-a:hover {
-    transform: translateY(-1px);
-}
-
-a::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #00030c;
-    transition: width 0.3s ease;
-}
-
-a:hover::after {
-    width: 100%;
-} */
-
-
-/* Footer link effects */
-
-
-/* .footer-section a:hover {
-    transform: translateX(5px);
-    color: #01030c;
-} */
 
 
 /* Responsive button interactions 
