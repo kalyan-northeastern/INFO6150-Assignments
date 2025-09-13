@@ -1,0 +1,1056 @@
+/* Tech Innovation Hub - External CSS Styles */
+
+
+/* Reset and base styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #00030c 0%, #08010f 100%);
+    min-height: 100vh;
+}
+
+
+/* Header styles */
+
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    color: #00030c;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+
+/* .nav-links a:hover {
+    color: #00020a;
+} */
+
+
+/* Main content layout - following wireframe structure */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    margin-top: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+/* Hero section */
+
+.hero {
+    text-align: center;
+    padding: 4rem 0;
+    background: linear-gradient(45deg, #000311, #0a0113);
+    color: white;
+    border-radius: 15px;
+    margin-bottom: 3rem;
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.cta-button {
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    /* cursor: pointer; */
+    /* transition: all 0.3s ease; */
+    /* box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3); */
+}
+
+
+/* .cta-button:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+} */
+
+
+/* Technologies section */
+
+.technologies {
+    margin-bottom: 3rem;
+}
+
+.technologies h2 {
+    color: #010411;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #01030e;
+    padding-bottom: 1rem;
+}
+
+.tech-article {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #010414;
+}
+
+.tech-article h3 {
+    color: #333;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.tech-article p {
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+
+/* Figure and figcaption */
+
+figure {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+figure img {
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+
+/* figure img:hover {
+    transform: scale(1.05);
+} */
+
+figcaption {
+    font-style: italic;
+    color: #666;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+}
+
+
+/* Table styles */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+th,
+td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background: linear-gradient(45deg, #000413, #07000e);
+    color: white;
+    font-weight: bold;
+}
+
+
+/* tr:hover {
+    background: #f8f9ff;
+} */
+
+
+/* Details and Summary */
+
+details {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f8f9ff;
+    border-radius: 8px;
+    border-left: 4px solid #00030c;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #01030f;
+    font-size: 1.1rem;
+}
+
+
+/* 
+summary:hover {
+    color: #1e0933;
+} */
+
+
+/* Contact section */
+
+.contact {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+}
+
+.contact h2 {
+    color: #01030e;
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #666;
+}
+
+
+/* Form styles */
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+fieldset {
+    border: 2px solid #01030c;
+    border-radius: 10px;
+    padding: 2rem;
+    background: #f8f9ff;
+}
+
+legend {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #01030c;
+    padding: 0 1rem;
+}
+
+label {
+    display: block;
+    margin: 1rem 0 0.5rem 0;
+    font-weight: bold;
+    color: #333;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[list],
+textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[list]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #00030f;
+    box-shadow: 0 0 5px rgba(0, 3, 17, 0.3);
+}
+
+button {
+    background: linear-gradient(45deg, #00030f, #08000f);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    margin: 1rem 0.5rem 0 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    /* transition: all 0.3s ease; */
+}
+
+
+/* button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(1, 3, 12, 0.3);
+} */
+
+button[type="reset"] {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+}
+
+button[type="reset"]:hover {
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+
+/* About section */
+
+.about {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+}
+
+.about h2 {
+    color: #020513;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #010414;
+    padding-bottom: 1rem;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.about-text h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    border-left: 4px solid #02071d;
+    padding-left: 1rem;
+}
+
+.about-text ul {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.about-text li {
+    margin: 0.5rem 0;
+    color: #555;
+}
+
+.about-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(45deg, #00020c, #040008);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(1, 5, 22, 0.3);
+}
+
+.stat-item h4 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.stat-item p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+
+/* Aside sidebar - positioned on the right side of main */
+
+aside {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+}
+
+.aside-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.aside-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+aside h3 {
+    color: #010513;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+aside ul {
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+aside li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 5px;
+    /* transition: background-color 0.3s ease; */
+}
+
+
+/* aside li:hover {
+    background-color: #f8f9ff;
+} */
+
+aside a {
+    color: #333;
+    text-decoration: none;
+    /* transition: color 0.3s ease; */
+}
+
+
+/* aside a:hover {
+    color: #010411;
+} */
+
+
+/* Technology trends */
+
+.trend-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+.trend-name {
+    min-width: 120px;
+    font-weight: bold;
+    color: #333;
+}
+
+.trend-bar {
+    flex: 1;
+    height: 8px;
+    background: #eee;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.trend-fill {
+    height: 100%;
+    background: linear-gradient(45deg, #00020c, #07000e);
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+.trend-percent {
+    min-width: 40px;
+    text-align: right;
+    font-weight: bold;
+    color: #000208;
+}
+
+
+/* Newsletter form */
+
+.newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.newsletter-form input {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+.newsletter-form button {
+    padding: 0.8rem 1rem;
+    background: linear-gradient(45deg, #00020c, #07000e);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: bold;
+    /* transition: all 0.3s ease; */
+}
+
+.newsletter-form button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(1, 5, 24, 0.3);
+}
+
+.podcast-desc,
+.video-desc {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+
+/* Audio and Video styles */
+
+audio,
+video {
+    width: 100%;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Footer */
+
+footer {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    margin-top: 3rem;
+    border-radius: 15px 15px 0 0;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    color: #01030e;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section li {
+    margin: 0.5rem 0;
+}
+
+.footer-section a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: #010411;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    color: #666;
+}
+
+
+/* Responsive design */
+
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .nav-links {
+        gap: 1rem;
+    }
+    .hero h2 {
+        font-size: 2rem;
+    }
+    main {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        margin: 1rem;
+    }
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .about-stats {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .stat-item {
+        flex: 1;
+        margin: 0 0.5rem;
+    }
+    .trend-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    .trend-name {
+        min-width: auto;
+    }
+    .trend-bar {
+        width: 100%;
+    }
+    .newsletter-form {
+        flex-direction: column;
+    }
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    aside {
+        position: static;
+        margin-top: 2rem;
+        order: -1;
+        /* Move aside above main content on mobile */
+    }
+}
+
+
+/* Animation effects */
+
+
+/* @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tech-article {
+    animation: fadeInUp 0.6s ease-out;
+} */
+
+
+/* Smooth scrolling */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* CSS-only Interactive Functionality */
+
+
+/* Button click animations */
+
+button {
+    position: relative;
+    overflow: hidden;
+}
+
+
+/* button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+} */
+
+button:focus {
+    outline: 3px solid rgba(0, 2, 12, 0.5);
+    outline-offset: 2px;
+}
+
+
+/* Form validation styling */
+
+input:invalid {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
+}
+
+input:valid {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+}
+
+input:required:invalid {
+    border-color: #ff6b6b;
+}
+
+input:required:valid {
+    border-color: #4CAF50;
+}
+
+
+/* Form submission feedback */
+
+form:target {
+    animation: formSubmitted 2s ease-in-out;
+}
+
+@keyframes formSubmitted {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+        background-color: #f0f8ff;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Newsletter form styling */
+
+.newsletter-form:target {
+    animation: newsletterSubscribed 2s ease-in-out;
+}
+
+@keyframes newsletterSubscribed {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+        background-color: #f0fff0;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Details/Summary enhanced styling */
+
+details summary {
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+details summary:hover {
+    color: #07010e;
+    transform: translateX(5px);
+}
+
+details[open] summary {
+    color: #08000f;
+    border-bottom: 2px solid #08000f;
+    padding-bottom: 0.5rem;
+}
+
+details[open] {
+    background: linear-gradient(135deg, #f8f9ff, #e8f2ff);
+    border-radius: 8px;
+    padding: 1rem;
+    margin: 1rem 0;
+}
+
+
+/* Table row interactions */
+
+table tbody tr {
+    transition: all 0.3s ease;
+}
+
+
+/* table tbody tr:hover {
+    background-color: #e8f2ff;
+    transform: scale(1.01);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+} */
+
+
+/* Image hover effects */
+
+figure img {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+/* figure img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+} */
+
+
+/* Navigation link active states */
+
+.nav-links a:target {
+    color: #000000;
+    font-weight: bold;
+    border-bottom: 2px solid #01030e;
+}
+
+
+/* Section visibility on navigation */
+
+section:target {
+    animation: sectionHighlight 1s ease-in-out;
+}
+
+@keyframes sectionHighlight {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: rgba(0, 3, 15, 0.1);
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+
+/* Aside section interactions */
+
+
+/* .aside-section {
+    transition: all 0.3s ease;
+}
+
+.aside-section:hover {
+    transform: translateX(5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #ffffff, #f8f9ff);
+} */
+
+
+/* Audio/Video enhanced styling */
+
+audio,
+video {
+    transition: all 0.3s ease;
+}
+
+audio:hover,
+video:hover {
+    transform: scale(1.02);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Contact form enhanced styling */
+
+.contact:target {
+    animation: contactFormSubmitted 3s ease-in-out;
+}
+
+@keyframes contactFormSubmitted {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.02);
+        background-color: #f0fff0;
+    }
+    50% {
+        transform: scale(1.01);
+        background-color: #f0f8ff;
+    }
+    75% {
+        transform: scale(1.02);
+        background-color: #fff8f0;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Technology trends animation */
+
+.trend-fill {
+    animation: trendFill 2s ease-in-out;
+}
+
+@keyframes trendFill {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: var(--trend-width, 85%);
+    }
+}
+
+
+/* About section stats animation */
+
+.stat-item {
+    animation: statCountUp 2s ease-in-out;
+}
+
+@keyframes statCountUp {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+/* CTA button special effects */
+
+
+/* 
+.cta-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+} */
+
+
+/* Form field focus effects */
+
+
+/* input:focus,
+textarea:focus {
+    transform: scale(1.02);
+    box-shadow: 0 0 10px rgba(0, 2, 12, 0.3);
+} */
+
+
+/* Link hover effects */
+
+
+/* a {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    transform: translateY(-1px);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #00030c;
+    transition: width 0.3s ease;
+}
+
+a:hover::after {
+    width: 100%;
+} */
+
+
+/* Footer link effects */
+
+
+/* .footer-section a:hover {
+    transform: translateX(5px);
+    color: #01030c;
+} */
+
+
+/* Responsive button interactions 
+@media (max-width: 768px) {
+    button:active {
+        transform: scale(0.9);
+    }
+    
+    .aside-section:hover {
+        transform: translateY(-2px);
+    }
+}
