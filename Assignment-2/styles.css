@@ -610,6 +610,27 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     box-shadow: 0 0 0 2px #00000014 inset
 }
 
+
+/* form visibility fix */
+
+.contact-form input,
+.contact-form textarea {
+    color: var(--ink);
+    background: #fff;
+    caret-color: currentColor
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #777
+}
+
+.contact-form input:-webkit-autofill,
+.contact-form textarea:-webkit-autofill {
+    -webkit-text-fill-color: var(--ink) !important;
+    transition: background-color 5000s ease-in-out 0s
+}
+
 @media (prefers-reduced-motion:reduce) {
     html {
         scroll-behavior: auto
@@ -717,6 +738,21 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     }
     section:target .card {
         outline-color: #6ea8ff66
+    }
+    .contact-form input,
+    .contact-form textarea {
+        background: #0f1320;
+        color: #e7e9ee;
+        border-color: #2a3140;
+        caret-color: currentColor
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder {
+        color: #9aa3ad
+    }
+    .contact-form input:-webkit-autofill,
+    .contact-form textarea:-webkit-autofill {
+        -webkit-text-fill-color: #e7e9ee !important
     }
 }
 
