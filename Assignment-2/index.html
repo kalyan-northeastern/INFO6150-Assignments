@@ -4,28 +4,34 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
     <title>Kalyan Venkata Swamy Karnati — Portfolio</title>
-    <link rel="icon" href="assets/favicon.ico" />
+    <!-- 1) Favicon -->
+    <link rel="icon" type="assets/favicon" href="assets/favicon.svg" />
+    <!-- 8) External CSS only -->
     <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body id="top">
+    <a class="skip-link" href="#about">Skip to content</a>
+
+    <!-- 2a) Semantic: Header -->
     <header class="site-header">
         <div class="brand">
-            <img src="images/profile.jpg" alt="Kalyan Venkata Swamy Karnati headshot" class="avatar" />
+            <img src="images/k.pic.jpeg" alt="Kalyan Venkata Swamy Karnati headshot" class="avatar" />
             <div class="brand-text">
                 <h1>Kalyan Venkata Swamy Karnati</h1>
-                <p>Boston, MA • M.S. Information Systems, Northeastern University</p>
+                <p>Boston, MA • M.S. Information Systems</p>
             </div>
         </div>
 
-        <!-- NAV updated to resume-relevant sections -->
-        <nav aria-label="Primary" class="site-nav">
+        <!-- 3a) HTML Control: Navigation -->
+        <nav class="site-nav" aria-label="Primary">
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
+                <li><a href="#about" aria-current="page">About</a></li>
                 <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#gallery">Image Gallery</a></li>
                 <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -33,30 +39,56 @@
     </header>
 
     <main>
+
+        <!-- 2b) Semantic: Section -->
         <!-- ABOUT -->
         <section id="about" class="container">
-            <article class="card intro">
-                <h2>About</h2>
+            <article class="card">
+                <h2 class="sr-only">About</h2>
                 <p>
-                    Software engineer experienced across frontend platforms, secure mobile authentication, and analytics engineering. Comfortable in <strong>Java, Python, SQL, C++, Kotlin, PHP</strong> with frameworks like <strong>Spring Boot, Django, Flask, Node.js, React</strong>,
-                    and data/BI on <strong>AWS / GCP</strong>.
+                    I’m <strong>Kalyan Venkata Swamy Karnati</strong>, a software engineer who enjoys turning ambiguous product ideas into reliable, human-friendly systems. I work across the stack—API design, data pipelines, and polished UI—using Java,
+                    Python, SQL, and modern frameworks like Spring Boot, Django, and React.
+                </p>
+                <p>
+                    Recently, I’ve focused on building secure authentication flows, real-time ML prototypes (TensorFlow/Keras), and analytical dashboards that reduce decision time. I care about readable code, thoughtful instrumentation, and inclusive, responsive design that
+                    works on any screen.
                 </p>
                 <p class="cta">
-                    <a href="tel:+18573905697">+1 (857) 390-5697</a> ·
-                    <a href="mailto:karnati.k@northeastern.edu">karnati.k@northeastern.edu</a> ·
-                    <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="tel:+18573905697" class="btn linkish">+1 (857) 390-5697</a>
+                    <a href="mailto:karnati.k@northeastern.edu" class="btn linkish">karnati.k@northeastern.edu</a>
+                    <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener" class="btn linkish">LinkedIn</a>
                 </p>
             </article>
+
+            <!-- ASIDE — bigger quick info -->
+            <aside class="card info big-aside" aria-label="Quick info">
+                <h3 class="sr-only">Quick Info</h3>
+
+                <ul class="bulleted">
+                    <li><strong>Languages:</strong> Java, Python, SQL, C++, Kotlin, PHP</li>
+                    <li><strong>Frameworks:</strong> Spring Boot, Django, Flask, React, Node.js</li>
+                    <li><strong>Cloud & Data:</strong> AWS, GCP, REST APIs, Power BI, DAX</li>
+                    <li><strong>Focus:</strong> Secure auth • API design • Data pipelines • Responsive UI</li>
+                    <li><strong>Open to:</strong> Internships, Co-ops, SDE roles</li>
+                </ul>
+
+                <div class="quick-cta">
+                    <a href="mailto:karnati.k@northeastern.edu" class="btn primary">Email Me</a>
+                    <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
+                </div>
+            </aside>
+
         </section>
 
-        <!-- EXPERIENCE -->
+
         <section id="experience" class="container">
             <article class="card">
-                <h2>Experience</h2>
+                <h2 class="sr-only">Experience</h2>
 
+                <!-- 3b & 6) Table + CSS selectors (see styles.css) -->
                 <div class="table-wrap" role="region" aria-label="Experience table" tabindex="0">
                     <table class="xp-table">
-                        <caption>Roles, Tech, and Impact</caption>
+                        <caption class="sr-only">Roles, technologies, and outcomes</caption>
                         <thead>
                             <tr>
                                 <th>Role</th>
@@ -68,21 +100,21 @@
                         <tbody>
                             <tr>
                                 <td data-role="lead">Software Engineer Intern</td>
-                                <td>Codeft Software Solutions (Wellmi)</td>
+                                <td>Company</td>
                                 <td>Kotlin, Firebase</td>
-                                <td>Secure mobile auth (~99.8% verification success). :contentReference[oaicite:2]{index=2}</td>
+                                <td>Secure mobile auth; high verification success</td>
                             </tr>
                             <tr>
                                 <td>Software Development Engineer</td>
-                                <td>Honeywell Technology Solutions</td>
-                                <td>HTML5, CSS3, JS, REST APIs</td>
-                                <td>Optimized CamPortal UI for SRE; improved adoption. :contentReference[oaicite:3]{index=3}</td>
+                                <td>Company</td>
+                                <td>HTML, CSS, JS, REST</td>
+                                <td>Improved UI efficiency and adoption</td>
                             </tr>
                             <tr>
                                 <td>Power BI Developer</td>
-                                <td>InfoInfinit Tech LLP</td>
-                                <td>Power BI, SQL (ETL), DAX</td>
-                                <td>Dashboards & models; reporting ~40% faster. :contentReference[oaicite:4]{index=4}</td>
+                                <td>Company</td>
+                                <td>Power BI, DAX, SQL</td>
+                                <td>Reporting cycle time reduced</td>
                             </tr>
                         </tbody>
                     </table>
@@ -90,74 +122,145 @@
             </article>
         </section>
 
-        <!-- PROJECTS (was “highlights”) -->
-        <section id="projects" class="container">
+        <!-- 4) Responsive UI #1: Testimonials (with hover) -->
+        <section id="testimonials" class="container">
             <article class="card">
-                <h2>Projects</h2>
+                <h2 class="sr-only">Testimonials</h2>
                 <div class="testimonials">
                     <figure class="t-card">
-                        <blockquote>Real-time Sign Language Recognition (Flask) — 98.64% accuracy.</blockquote>
-                        <figcaption>TensorFlow • Keras • Python. :contentReference[oaicite:5]{index=5}</figcaption>
+                        <blockquote>“Kalyan consistently ships reliable, readable code under deadlines.”</blockquote>
+                        <figcaption>— Engineering Manager</figcaption>
                     </figure>
                     <figure class="t-card">
-                        <blockquote>NGO Database Management System portal with MySQL & PHP.</blockquote>
-                        <figcaption>Schema design • Responsive frontend. :contentReference[oaicite:6]{index=6}</figcaption>
+                        <blockquote>“Great collaborator—unblocked a complex data issue in hours.”</blockquote>
+                        <figcaption>— Tech Lead</figcaption>
+                    </figure>
+                    <figure class="t-card">
+                        <blockquote>“Thoughtful problem-solver with strong product sense.”</blockquote>
+                        <figcaption>— Faculty Advisor</figcaption>
                     </figure>
                 </div>
             </article>
         </section>
 
-        <!-- SKILLS (was “gallery”) -->
-        <section id="skills" class="container">
+        <!-- 4) Responsive UI #2: Image Gallery (with hover) -->
+        <section id="gallery" class="container">
             <article class="card">
-                <h2>Skills</h2>
+                <h2 class="sr-only">Image Gallery</h2>
+
                 <div class="gallery">
-                    <!-- You can swap these images for skill badges/diagrams -->
-                    <a class="g-item"><img src="images/p1.jpg" alt="Languages: Java, Python, SQL, C++, Kotlin, PHP" /></a>
-                    <a class="g-item"><img src="images/p2.jpg" alt="Frameworks: Django, Spring Boot, Node.js, Flask, ReactJS" /></a>
-                    <a class="g-item"><img src="images/p3.jpg" alt="Cloud & Data: AWS, GCP, REST APIs, SQL/NoSQL" /></a>
-                    <a class="g-item"><img src="images/p4.jpg" alt="Analytics & BI: TensorFlow, Keras, Power BI, Tableau, DAX" /></a>
+                    <figure class="g-item">
+                        <img src="images/sign lng pic.webp" alt="Real-time Sign Language Recognition Flask UI" />
+                        <figcaption>
+                            <h3>Real-time Sign Language Recognition</h3>
+                            <p>Flask app powered by CNN/RNN; reached ~98.64% accuracy in tests.</p>
+                            <ul class="tags">
+                                <li>TensorFlow</li>
+                                <li>Keras</li>
+                                <li>Python</li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="g-item">
+                        <img src="images/OIP.webp" alt="CamPortal UI (SRE tooling) mock" />
+                        <figcaption>
+                            <h3>CamPortal UI</h3>
+                            <p>Optimized front-end for SRE workflows; faster navigation & task completion.</p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                            </ul>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="g-item">
+                        <img src="images/ngo.webp" alt="NGO database portal screenshots" />
+                        <figcaption>
+                            <h3>NGO Database Portal</h3>
+                            <p>Donor & beneficiary management with secure forms and relational schema.</p>
+                            <ul class="tags">
+                                <li>MySQL</li>
+                                <li>PHP</li>
+                                <li>Responsive UI</li>
+                            </ul>
+                        </figcaption>
+                    </figure>
                 </div>
+
             </article>
         </section>
 
         <!-- EDUCATION -->
         <section id="education" class="container">
             <article class="card">
-                <h2>Education</h2>
-                <ul>
-                    <li><strong>Northeastern University</strong>, Boston, MA — M.S. in Information Systems (Expected Dec 2026). :contentReference[oaicite:7]{index=7}</li>
-                    <li><strong>RV Institute of Technology and Management</strong>, Bengaluru, India — B.E. in CSE (Aug 2023). :contentReference[oaicite:8]{index=8}</li>
+                <h2 class="sr-only">Education</h2>
+
+                <ul class="edu-list">
+                    <li class="school">
+                        <h3>Northeastern University <span class="meta">Boston, MA</span></h3>
+                        <p class="degree">M.S. in Information Systems <small>(Expected Dec 2026)</small></p>
+                        <ul class="chips">
+                            <li>Cloud & Distributed Systems</li>
+                            <li>Database Management</li>
+                            <li>Web Development</li>
+                            <li>Data Modeling & Warehousing</li>
+                            <li>Machine Learning Fundamentals</li>
+                        </ul>
+                        <p class="blurb">
+                            Focus on building scalable, data-driven applications and APIs on AWS/GCP, with hands-on work in REST services, authentication, and analytics.
+                        </p>
+                    </li>
+
+                    <li class="school">
+                        <h3>RV Institute of Technology and Management <span class="meta">Bengaluru, India</span></h3>
+                        <p class="degree">B.E. in Computer Science & Engineering <small>(Aug 2023)</small></p>
+                        <ul class="chips">
+                            <li>Algorithms & Data Structures</li>
+                            <li>Operating Systems</li>
+                            <li>Computer Networks</li>
+                            <li>DBMS</li>
+                            <li>Software Engineering</li>
+                        </ul>
+                        <p class="blurb">
+                            Senior projects included a <em>Real-time Sign Language Recognition</em> app (Flask, TensorFlow/Keras) and an <em>NGO Database Portal</em> (MySQL, PHP) emphasizing clean schema design and responsive UI.
+                        </p>
+                    </li>
                 </ul>
             </article>
         </section>
 
-        <!-- CONTACT -->
+
         <section id="contact" class="container">
             <article class="card">
-                <h2>Contact</h2>
+                <h2 class="sr-only">Contact</h2>
+                <!-- 3c) Form + 3d) Buttons -->
                 <form class="contact-form" action="#" method="post">
                     <div class="grid">
-                        <label><span>Name</span><input type="text" required /></label>
-                        <label><span>Email</span><input type="email" required /></label>
+                        <label><span>Name</span><input type="text" name="name" required /></label>
+                        <label><span>Email</span><input type="email" name="email" required /></label>
                     </div>
-                    <label class="full"><span>Message</span><textarea rows="5" required></textarea></label>
+                    <label class="full"><span>Message</span><textarea name="message" rows="5" required></textarea></label>
                     <div class="actions">
                         <button type="submit" class="btn primary">Send</button>
                         <button type="reset" class="btn ghost">Reset</button>
                     </div>
                 </form>
-                <p class="copyright">
-                    © <span id="year"></span> Kalyan Venkata Swamy Karnati —
-                    <a href="mailto:karnati.k@northeastern.edu">karnati.k@northeastern.edu</a> —
-                    <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener">linkedin.com/in/kalyanvskarnati</a>
-                </p>
             </article>
         </section>
     </main>
 
+    <!-- 2e) Semantic: Footer -->
+    <footer class="site-footer">
+        <p>© <span id="year"></span> Kalyan Venkata Swamy Karnati —
+            <a href="mailto:karnati.k@northeastern.edu">karnati.k@northeastern.edu</a> —
+            <a href="#top">Back to top ↑</a>
+        </p>
+    </footer>
+
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 
