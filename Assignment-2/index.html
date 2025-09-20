@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kalyan Venkata Swamy Karnati — Portfolio</title>
+    <link rel="icon" href="assets/favicon.ico" />
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="brand">
+            <img src="images/profile.jpg" alt="Kalyan Venkata Swamy Karnati headshot" class="avatar" />
+            <div class="brand-text">
+                <h1>Kalyan Venkata Swamy Karnati</h1>
+                <p>Boston, MA • M.S. Information Systems</p>
+            </div>
+        </div>
+
+        <nav class="site-nav" aria-label="Primary">
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+
+        <section id="about" class="container">
+            <article class="card">
+                <h2>About</h2>
+                <p>
+
+                </p>
+                <p class="cta">
+
+                    <a href="tel:+18573905697">+1 (857) 390-5697</a> ·
+                    <a href="mailto:karnati.k@northeastern.edu">karnati.k@northeastern.edu</a> ·
+                    <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener">LinkedIn</a>
+                </p>
+            </article>
+        </section>
+
+
+        <section id="experience" class="container">
+            <article class="card">
+                <h2>Experience</h2>
+
+                <div class="table-wrap" role="region" aria-label="Experience table" tabindex="0">
+                    <table class="xp-table">
+                        <caption>
+                            <!-- Optional short description -->
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th>Role</th>
+                                <th>Organization</th>
+                                <th>Tech / Focus</th>
+                                <th>Impact</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- TODO: Replace sample rows -->
+                            <tr>
+                                <td data-role="lead">Software Engineer Intern</td>
+                                <td>Company</td>
+                                <td>Stack</td>
+                                <td>Outcome</td>
+                            </tr>
+                            <tr>
+                                <td>Title</td>
+                                <td>Company</td>
+                                <td>Stack</td>
+                                <td>Outcome</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </article>
+        </section>
+
+
+        <section id="projects" class="container">
+            <article class="card">
+                <h2>Projects</h2>
+                <div class="cards">
+
+                    <div class="mini-card">
+                        <h3>Project A</h3>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h3>Project B</h3>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div class="mini-card">
+                        <h3>Project C</h3>
+                        <p>
+
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+
+        <section id="skills" class="container">
+            <article class="card">
+                <h2>Skills</h2>
+                <ul class="skills">
+
+                    <li>Java</li>
+                    <li>Python</li>
+                    <li>SQL</li>
+                    <li>React</li>
+                    <li>AWS</li>
+                </ul>
+            </article>
+        </section>
+
+
+        <section id="education" class="container">
+            <article class="card">
+                <h2>Education</h2>
+                <ul class="edu">
+
+                    <li><strong>Northeastern University</strong> — M.S. Information Systems</li>
+                    <li><strong>Undergrad Institute</strong> — B.E. CSE</li>
+                </ul>
+            </article>
+        </section>
+
+
+        <section id="contact" class="container">
+            <article class="card">
+                <h2>Contact</h2>
+                <form class="contact-form" action="#" method="post">
+                    <div class="grid">
+                        <label><span>Name</span><input type="text" required /></label>
+                        <label><span>Email</span><input type="email" required /></label>
+                    </div>
+                    <label class="full"><span>Message</span><textarea rows="5" required></textarea></label>
+                    <div class="actions">
+                        <button type="submit" class="btn primary">Send</button>
+                        <button type="reset" class="btn ghost">Reset</button>
+                    </div>
+                </form>
+                <p class="copyright">© <span id="year"></span> Kalyan Venkata Swamy Karnati</p>
+            </article>
+        </section>
+
+    </main>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
