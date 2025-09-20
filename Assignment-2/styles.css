@@ -1,5 +1,3 @@
-/* ====== Tokens ====== */
-
 :root {
     --bg: #f4efe6;
     --strip: #c9ab86;
@@ -8,20 +6,13 @@
     --card: #fff;
     --border: #d9d0c5;
     --divider: #b5966f;
-    /* Colorful accents for portfolio */
     --acc1: #7dd3fc;
-    /* sky */
     --acc2: #a7f3d0;
-    /* mint */
     --acc3: #fbcfe8;
-    /* pink */
     --acc4: #fde68a;
-    /* sand */
     --ink-strong: #0f172a;
+    --header-offset: 120px
 }
-
-
-/* ====== Base ====== */
 
 * {
     box-sizing: border-box
@@ -53,9 +44,6 @@ a:hover {
     text-decoration: underline
 }
 
-
-/* Visually hide while keeping for screen readers/SEO */
-
 .sr-only {
     position: absolute !important;
     width: 1px;
@@ -65,11 +53,8 @@ a:hover {
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
-    border: 0;
+    border: 0
 }
-
-
-/* Skip link (a11y) */
 
 .skip-link {
     position: absolute;
@@ -77,7 +62,7 @@ a:hover {
     top: auto;
     width: 1px;
     height: 1px;
-    overflow: hidden;
+    overflow: hidden
 }
 
 .skip-link:focus {
@@ -90,12 +75,8 @@ a:hover {
     color: #fff;
     padding: .5rem .75rem;
     border-radius: .35rem;
-    z-index: 1000;
+    z-index: 1000
 }
-
-
-/* ====== Layout (Flexbox) ======
-     Uses: align-items, justify-content, flex-direction, flex-grow, flex-wrap */
 
 .container {
     max-width: 1100px;
@@ -105,8 +86,7 @@ a:hover {
     gap: 1rem;
     flex-wrap: wrap;
     align-items: stretch;
-    /* align-items + flex-wrap */
-    justify-content: stretch;
+    justify-content: stretch
 }
 
 .card {
@@ -114,12 +94,53 @@ a:hover {
     border: 1px solid var(--border);
     border-radius: .5rem;
     padding: 1rem;
-    flex: 1 1 520px;
-    /* flex-grow used here (via shorthand) */
+    flex: 1 1 520px
 }
 
+.section-title {
+    width: 100%;
+    margin: .25rem 0 .5rem 0;
+    padding: .35rem .6rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: .2px;
+    color: #1f2937;
+    background: linear-gradient(90deg, #fff8ec, #f7efdf);
+    border: 1px solid #e6dccf;
+    border-radius: .45rem;
+    scroll-margin-top: var(--header-offset)
+}
 
-/* ====== Header + Nav ====== */
+@media (min-width:1200px) {
+    .container {
+        align-items: flex-start
+    }
+    .section-title {
+        position: sticky;
+        top: calc(var(--header-offset) + 8px);
+        margin-bottom: .75rem
+    }
+}
+
+@media (min-width:768px) {
+    .section-title {
+        font-size: 1.15rem;
+        padding: .45rem .75rem
+    }
+}
+
+@media (prefers-color-scheme:dark) {
+    .section-title {
+        color: #e7e9ee;
+        background: linear-gradient(90deg, #1a2030, #141b26);
+        border-color: #2a3140
+    }
+}
+
+.container>.section-title+.card,
+.container>.section-title+.card+.card {
+    margin-top: .25rem
+}
 
 .site-header {
     background: var(--strip);
@@ -127,8 +148,7 @@ a:hover {
     position: sticky;
     top: 0;
     z-index: 50;
-    box-shadow: 0 1px 0 #0000001a;
-    /* sticky + subtle shadow */
+    box-shadow: 0 1px 0 #0000001a
 }
 
 .brand {
@@ -184,13 +204,10 @@ a:hover {
     outline: none
 }
 
-
-/* ====== Aside (Quick Info) — colorful gradient tile ====== */
-
 .info {
     background: linear-gradient(135deg, var(--acc2) 0%, #e6fff0 100%);
     border-color: rgba(0, 0, 0, .08);
-    color: var(--ink-strong);
+    color: var(--ink-strong)
 }
 
 .bulleted {
@@ -203,77 +220,52 @@ a:hover {
     color: #1f2937
 }
 
-
-/* ====== Bigger Aside variant ====== */
-
 #about {
     align-items: stretch
 }
 
-
-/* ensure both columns match height */
-
 .big-aside {
     flex: 1.6 1 460px;
-    /* wider aside on large screens */
     padding: 1.25rem 1.25rem;
     font-size: 1rem;
     line-height: 1.6;
-    border-width: 2px;
+    border-width: 2px
 }
 
-
-/* Multi-column bullets on wider screens */
-
-@media (min-width: 900px) {
+@media (min-width:900px) {
     .big-aside .bulleted {
         column-count: 2;
-        column-gap: 1.25rem;
+        column-gap: 1.25rem
     }
     .big-aside .bulleted li {
         break-inside: avoid;
-        padding-right: .5rem;
+        padding-right: .5rem
     }
 }
-
-
-/* Aside CTA row */
 
 .big-aside .quick-cta {
     display: flex;
     gap: .5rem;
     flex-wrap: wrap;
-    margin-top: .75rem;
+    margin-top: .75rem
 }
 
-
-/* Spacing tweaks for bigger aside */
-
 .big-aside .bulleted {
-    margin: 0 0 .75rem 1.25rem;
-    /* line space before CTA, keep left indent */
+    margin: 0 0 .75rem 1.25rem
 }
 
 .big-aside .quick-cta {
     margin-top: .25rem;
-    /* compact gap */
-    margin-bottom: .25rem;
-    /* reduce space below buttons */
+    margin-bottom: .25rem
 }
 
 .big-aside {
-    padding-bottom: .75rem;
+    padding-bottom: .75rem
 }
 
-
-/* tighten bottom padding */
-
-.big-aside> :last-child {
-    margin-bottom: 0 !important;
+.big-aside>:last-child {
+    margin-bottom: 0 !important
 }
-
-
-/* ====== Table (Selectors for styling) ====== */
 
 .table-wrap {
     overflow: auto;
@@ -309,26 +301,17 @@ a:hover {
     background: #fbf7f1
 }
 
-
-/* selector 1: :nth-child */
-
 .xp-table td[data-role="lead"] {
     font-weight: 700;
     color: #805b00
 }
-
-
-/* selector 2: attribute selector */
-
-
-/* ====== Testimonials (Responsive UI #1) ====== */
 
 .testimonials {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     align-items: stretch;
-    justify-content: space-between;
+    justify-content: space-between
 }
 
 .t-card {
@@ -339,7 +322,7 @@ a:hover {
     border: 1px solid #e6dccf;
     border-radius: .6rem;
     background: #fff;
-    transition: transform .2s ease, box-shadow .2s ease;
+    transition: transform .2s ease, box-shadow .2s ease
 }
 
 .t-card blockquote {
@@ -348,12 +331,9 @@ a:hover {
 }
 
 .t-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px #0006
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, .12)
 }
-
-
-/* Colorful testimonial variants */
 
 .testimonials .t-card {
     border-color: transparent;
@@ -362,52 +342,39 @@ a:hover {
 }
 
 .testimonials .t-card:nth-child(1) {
-    background: linear-gradient(135deg, var(--acc1) 0%, #dbeafe 100%);
+    background: linear-gradient(135deg, var(--acc1) 0%, #dbeafe 100%)
 }
 
 .testimonials .t-card:nth-child(2) {
-    background: linear-gradient(135deg, var(--acc3) 0%, #ffe4f2 100%);
+    background: linear-gradient(135deg, var(--acc3) 0%, #ffe4f2 100%)
 }
 
 .testimonials .t-card:nth-child(3) {
-    background: linear-gradient(135deg, var(--acc4) 0%, #fff5cf 100%);
-}
-
-.t-card blockquote {
-    color: #0b1220
+    background: linear-gradient(135deg, var(--acc4) 0%, #fff5cf 100%)
 }
 
 .t-card figcaption {
     color: #334155
 }
 
-.t-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, .12)
-}
-
-
-/* ====== Image Gallery (Responsive UI #2) ====== */
-
 .gallery {
     display: flex;
     gap: .6rem;
     flex-wrap: wrap;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: flex-start
 }
 
 .g-item {
     position: relative;
     display: flex;
     flex-direction: column;
-    /* flex-direction */
     flex: 1 1 220px;
     max-width: 320px;
     border-radius: .5rem;
     overflow: hidden;
     border: 1px solid #e6dccf;
-    background: #fff;
+    background: #fff
 }
 
 .g-item img {
@@ -419,18 +386,14 @@ a:hover {
     transform: scale(1.05)
 }
 
-
-/* Gallery captions */
-
 .g-item figcaption {
     padding: .6rem .75rem;
     border-top: 1px solid #e6dccf;
     background: #ffffffcc;
-    /* slight translucency */
     backdrop-filter: saturate(1.1);
     transition: transform .25s ease, opacity .25s ease;
     transform: translateY(6px);
-    opacity: .96;
+    opacity: .96
 }
 
 .g-item:hover figcaption {
@@ -464,11 +427,8 @@ a:hover {
     padding: .15rem .45rem;
     border: 1px solid #e6dccf;
     border-radius: 999px;
-    background: #fbf7f1;
+    background: #fbf7f1
 }
-
-
-/* ====== Small Components (projects cards / skills lists) ====== */
 
 .cards {
     display: flex;
@@ -498,9 +458,6 @@ a:hover {
     margin-left: 1rem
 }
 
-
-/* ====== Education Details ====== */
-
 .edu-list {
     list-style: none;
     padding: 0;
@@ -516,7 +473,7 @@ a:hover {
     border: 1px solid var(--border);
     border-radius: .5rem;
     padding: 1rem;
-    background: #fffef9;
+    background: #fffef9
 }
 
 .edu-list h3 {
@@ -554,7 +511,7 @@ a:hover {
     padding: .15rem .45rem;
     border: 1px solid #e6dccf;
     border-radius: 999px;
-    background: #fbf7f1;
+    background: #fbf7f1
 }
 
 .blurb {
@@ -562,9 +519,6 @@ a:hover {
     color: #4a4a4a;
     line-height: 1.5
 }
-
-
-/* ====== Form + Buttons ====== */
 
 .contact-form {
     display: flex;
@@ -627,9 +581,6 @@ a:hover {
     outline-offset: 2px
 }
 
-
-/* ====== Footer ====== */
-
 .site-footer {
     padding: 1.25rem 1rem;
     text-align: center;
@@ -638,12 +589,14 @@ a:hover {
     margin-top: 1.5rem
 }
 
-
-/* ====== Anchor/section highlight (no JS) ====== */
+section,
+.section-title {
+    scroll-margin-top: var(--header-offset)
+}
 
 section:target .card {
     outline: 2px solid #00000022;
-    outline-offset: 4px;
+    outline-offset: 4px
 }
 
 body:has(#about:target) .nav-links a[href="#about"],
@@ -654,27 +607,21 @@ body:has(#education:target) .nav-links a[href="#education"],
 body:has(#contact:target) .nav-links a[href="#contact"] {
     background: #e7d0b2;
     border-color: var(--divider);
-    box-shadow: 0 0 0 2px #00000014 inset;
+    box-shadow: 0 0 0 2px #00000014 inset
 }
 
-
-/* ====== Reduced motion ====== */
-
-@media (prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion:reduce) {
     html {
         scroll-behavior: auto
     }
     * {
-        animation-duration: 0.01ms !important;
+        animation-duration: .01ms !important;
         animation-iteration-count: 1 !important;
         transition: none !important
     }
 }
 
-
-/* ====== Dark mode (system) ====== */
-
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme:dark) {
      :root {
         --bg: #0f1115;
         --strip: #1e232c;
@@ -683,7 +630,7 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
         --card: #141821;
         --border: #2a3140;
         --divider: #6ea8ff;
-        --ink-strong: #e7e9ee;
+        --ink-strong: #e7e9ee
     }
     .site-nav {
         background: #1a2030
@@ -692,7 +639,6 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     .nav-links a:focus-visible {
         background: #20283a
     }
-    /* Aside dark gradient */
     .info {
         background: linear-gradient(135deg, #1f2a22 0%, #152019 100%);
         border-color: #2a3140;
@@ -701,7 +647,6 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     .bulleted li {
         color: #e5e7eb
     }
-    /* Table */
     .xp-table thead th {
         background: #1f2736
     }
@@ -711,7 +656,6 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     .table-wrap {
         border-color: #253047
     }
-    /* Testimonials dark palettes */
     .testimonials .t-card:nth-child(1) {
         background: linear-gradient(135deg, #0b2433 0%, #142032 100%)
     }
@@ -727,7 +671,6 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     .t-card figcaption {
         color: #c7cfdb
     }
-    /* Gallery dark tweaks */
     .g-item {
         background: #141821;
         border-color: #2a3140
@@ -744,7 +687,6 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
         border-color: #2a3140;
         color: #cfd6e2
     }
-    /* Education dark */
     .edu-list .school {
         background: #141821;
         border-color: #2a3140
@@ -778,44 +720,10 @@ body:has(#contact:target) .nav-links a[href="#contact"] {
     }
 }
 
-
-/* ===== Anchor offset so sticky header doesn't hide sections ===== */
-
-:root {
-    /* Desktop header is taller (brand + nav). Adjust if you change header size */
-    --header-offset: 120px;
-}
-
-
-/* When jumping to #about, #experience, etc., leave room for the sticky header */
-
-section,
-.section-title {
-    scroll-margin-top: var(--header-offset);
-}
-
-
-/* Tweak the offset for smaller screens where the header is shorter */
-
-@media (max-width: 768px) {
+@media (max-width:768px) {
      :root {
-        --header-offset: 96px;
+        --header-offset: 96px
     }
-}
-
-@media (max-width: 375px) {
-     :root {
-        --header-offset: 72px;
-    }
-}
-
-
-/* ====== Media Queries (grading focus) ====== */
-
-
-/* iPad & below (<=768px) */
-
-@media (max-width: 768px) {
     .nav-links {
         flex-direction: column;
         gap: 0;
@@ -840,7 +748,6 @@ section,
     .table-wrap {
         max-width: 100%
     }
-    /* Aside stays strong but stacks */
     .big-aside {
         flex: 1 1 100%;
         font-size: 1rem;
@@ -851,10 +758,10 @@ section,
     }
 }
 
-
-/* Small phones (<=375px) */
-
-@media (max-width: 375px) {
+@media (max-width:375px) {
+     :root {
+        --header-offset: 72px
+    }
     .avatar {
         display: none
     }
@@ -885,15 +792,12 @@ section,
     .container {
         flex-direction: column
     }
-    /* flex-direction explicitly used */
-    /* Gallery caption sizing */
     .g-item h3 {
         font-size: 1rem
     }
     .g-item p {
         font-size: .9rem
     }
-    /* Table → stacked rows for readability */
     .xp-table {
         min-width: 0;
         border-collapse: separate;

@@ -6,16 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
     <title>Kalyan Venkata Swamy Karnati — Portfolio</title>
-    <!-- 1) Favicon -->
     <link rel="icon" type="assets/favicon" href="assets/favicon.svg" />
-    <!-- 8) External CSS only -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png" />
+    <link rel="icon" href="assets/favicon.ico" />
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body id="top">
     <a class="skip-link" href="#about">Skip to content</a>
-
-    <!-- 2a) Semantic: Header -->
     <header class="site-header">
         <div class="brand">
             <img src="images/k.pic.jpeg" alt="Kalyan Venkata Swamy Karnati headshot" class="avatar" />
@@ -24,8 +23,6 @@
                 <p>Boston, MA • M.S. Information Systems</p>
             </div>
         </div>
-
-        <!-- 3a) HTML Control: Navigation -->
         <nav class="site-nav" aria-label="Primary">
             <ul class="nav-links">
                 <li><a href="#about" aria-current="page">About</a></li>
@@ -37,33 +34,22 @@
             </ul>
         </nav>
     </header>
-
     <main>
-
-        <!-- 2b) Semantic: Section -->
-        <!-- ABOUT -->
         <section id="about" class="container">
+            <h2 class="section-title" aria-label="About section">About</h2>
             <article class="card">
-                <h2 class="sr-only">About</h2>
-                <p>
-                    I’m <strong>Kalyan Venkata Swamy Karnati</strong>, a software engineer who enjoys turning ambiguous product ideas into reliable, human-friendly systems. I work across the stack—API design, data pipelines, and polished UI—using Java,
-                    Python, SQL, and modern frameworks like Spring Boot, Django, and React.
-                </p>
-                <p>
-                    Recently, I’ve focused on building secure authentication flows, real-time ML prototypes (TensorFlow/Keras), and analytical dashboards that reduce decision time. I care about readable code, thoughtful instrumentation, and inclusive, responsive design that
-                    works on any screen.
-                </p>
+                <p>I’m <strong>Kalyan Venkata Swamy Karnati</strong>, a software engineer who enjoys turning ambiguous product ideas into reliable, human-friendly systems. I work across the stack—API design, data pipelines, and polished UI—using Java, Python,
+                    SQL, and modern frameworks like Spring Boot, Django, and React.</p>
+                <p>Recently, I’ve focused on building secure authentication flows, real-time ML prototypes (TensorFlow/Keras), and analytical dashboards that reduce decision time. I care about readable code, thoughtful instrumentation, and inclusive, responsive
+                    design that works on any screen.</p>
                 <p class="cta">
                     <a href="tel:+18573905697" class="btn linkish">+1 (857) 390-5697</a>
                     <a href="mailto:karnati.k@northeastern.edu" class="btn linkish">karnati.k@northeastern.edu</a>
                     <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener" class="btn linkish">LinkedIn</a>
                 </p>
             </article>
-
-            <!-- ASIDE — bigger quick info -->
             <aside class="card info big-aside" aria-label="Quick info">
                 <h3 class="sr-only">Quick Info</h3>
-
                 <ul class="bulleted">
                     <li><strong>Languages:</strong> Java, Python, SQL, C++, Kotlin, PHP</li>
                     <li><strong>Frameworks:</strong> Spring Boot, Django, Flask, React, Node.js</li>
@@ -71,21 +57,15 @@
                     <li><strong>Focus:</strong> Secure auth • API design • Data pipelines • Responsive UI</li>
                     <li><strong>Open to:</strong> Internships, Co-ops, SDE roles</li>
                 </ul>
-
                 <div class="quick-cta">
                     <a href="mailto:karnati.k@northeastern.edu" class="btn primary">Email Me</a>
                     <a href="https://www.linkedin.com/in/kalyanvskarnati/" target="_blank" rel="noopener" class="btn ghost">LinkedIn</a>
                 </div>
             </aside>
-
         </section>
-
-
         <section id="experience" class="container">
+            <h2 class="section-title" aria-label="Experience section">Experience</h2>
             <article class="card">
-                <h2 class="sr-only">Experience</h2>
-
-                <!-- 3b & 6) Table + CSS selectors (see styles.css) -->
                 <div class="table-wrap" role="region" aria-label="Experience table" tabindex="0">
                     <table class="xp-table">
                         <caption class="sr-only">Roles, technologies, and outcomes</caption>
@@ -121,11 +101,9 @@
                 </div>
             </article>
         </section>
-
-        <!-- 4) Responsive UI #1: Testimonials (with hover) -->
         <section id="testimonials" class="container">
+            <h2 class="section-title" aria-label="Testimonials section">Testimonials</h2>
             <article class="card">
-                <h2 class="sr-only">Testimonials</h2>
                 <div class="testimonials">
                     <figure class="t-card">
                         <blockquote>“Kalyan consistently ships reliable, readable code under deadlines.”</blockquote>
@@ -142,12 +120,9 @@
                 </div>
             </article>
         </section>
-
-        <!-- 4) Responsive UI #2: Image Gallery (with hover) -->
         <section id="gallery" class="container">
+            <h2 class="section-title" aria-label="Image Gallery section">Image Gallery</h2>
             <article class="card">
-                <h2 class="sr-only">Image Gallery</h2>
-
                 <div class="gallery">
                     <figure class="g-item">
                         <img src="images/sign lng pic.webp" alt="Real-time Sign Language Recognition Flask UI" />
@@ -161,20 +136,18 @@
                             </ul>
                         </figcaption>
                     </figure>
-
                     <figure class="g-item">
-                        <img src="images/OIP.webp" alt="CamPortal UI (SRE tooling) mock" />
+                        <img src="images/OIP.webp" alt="Power BI dashboard KPIs and time series" />
                         <figcaption>
-                            <h3>CamPortal UI</h3>
-                            <p>Optimized front-end for SRE workflows; faster navigation & task completion.</p>
+                            <h3>Executive BI Dashboards</h3>
+                            <p>Modeled datasets and interactive visuals; reporting cycles cut significantly.</p>
                             <ul class="tags">
-                                <li>HTML</li>
-                                <li>CSS</li>
-                                <li>JavaScript</li>
+                                <li>Power BI</li>
+                                <li>DAX</li>
+                                <li>SQL</li>
                             </ul>
                         </figcaption>
                     </figure>
-
                     <figure class="g-item">
                         <img src="images/ngo.webp" alt="NGO database portal screenshots" />
                         <figcaption>
@@ -188,15 +161,11 @@
                         </figcaption>
                     </figure>
                 </div>
-
             </article>
         </section>
-
-        <!-- EDUCATION -->
         <section id="education" class="container">
+            <h2 class="section-title" aria-label="Education section">Education</h2>
             <article class="card">
-                <h2 class="sr-only">Education</h2>
-
                 <ul class="edu-list">
                     <li class="school">
                         <h3>Northeastern University <span class="meta">Boston, MA</span></h3>
@@ -208,11 +177,8 @@
                             <li>Data Modeling & Warehousing</li>
                             <li>Machine Learning Fundamentals</li>
                         </ul>
-                        <p class="blurb">
-                            Focus on building scalable, data-driven applications and APIs on AWS/GCP, with hands-on work in REST services, authentication, and analytics.
-                        </p>
+                        <p class="blurb">Focus on building scalable, data-driven applications and APIs on AWS/GCP, with hands-on work in REST services, authentication, and analytics.</p>
                     </li>
-
                     <li class="school">
                         <h3>RV Institute of Technology and Management <span class="meta">Bengaluru, India</span></h3>
                         <p class="degree">B.E. in Computer Science & Engineering <small>(Aug 2023)</small></p>
@@ -223,19 +189,14 @@
                             <li>DBMS</li>
                             <li>Software Engineering</li>
                         </ul>
-                        <p class="blurb">
-                            Senior projects included a <em>Real-time Sign Language Recognition</em> app (Flask, TensorFlow/Keras) and an <em>NGO Database Portal</em> (MySQL, PHP) emphasizing clean schema design and responsive UI.
-                        </p>
+                        <p class="blurb">Senior projects included a <em>Real-time Sign Language Recognition</em> app (Flask, TensorFlow/Keras) and an <em>NGO Database Portal</em> (MySQL, PHP) emphasizing clean schema design and responsive UI.</p>
                     </li>
                 </ul>
             </article>
         </section>
-
-
         <section id="contact" class="container">
+            <h2 class="section-title" aria-label="Contact section">Contact</h2>
             <article class="card">
-                <h2 class="sr-only">Contact</h2>
-                <!-- 3c) Form + 3d) Buttons -->
                 <form class="contact-form" action="#" method="post">
                     <div class="grid">
                         <label><span>Name</span><input type="text" name="name" required /></label>
@@ -250,15 +211,12 @@
             </article>
         </section>
     </main>
-
-    <!-- 2e) Semantic: Footer -->
     <footer class="site-footer">
         <p>© <span id="year"></span> Kalyan Venkata Swamy Karnati —
             <a href="mailto:karnati.k@northeastern.edu">karnati.k@northeastern.edu</a> —
             <a href="#top">Back to top ↑</a>
         </p>
     </footer>
-
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
