@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student College Records</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Kalyan Venkata Swamy Karnati</h1>
+    <h2><strong>NUID: 002083543</strong></h2>
+
+    <table id="std-table">
+        <thead>
+            <tr>
+                <th></th>
+                <th>STUDENT</th>
+                <th>ADVISOR</th>
+                <th>AWARD STATUS</th>
+                <th>SEMESTER</th>
+                <th>TYPE</th>
+                <th>BUDGET</th>
+                <th>PERCENTAGE</th>
+                <th class="edit-table-head">EDIT</th>
+                <th class="delete-table-head">DELETE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="action">
+                    <input type="checkbox" class="select-row">
+                    <br>
+                    <span class="toggle">&#9660;</span>
+                </td>
+                <td>Student 1</td>
+                <td>Teacher 1</td>
+                <td>Approved</td>
+                <td>Fall</td>
+                <td>TA</td>
+                <td>12345</td>
+                <td>100%</td>
+            </tr>
+            <tr class="details">
+                <td colspan="10">
+                    <b>Advisor:</b> Teacher 1<br>
+                    <b>Award Details:</b> Summer 1-2024 (TA)<br>
+                    <b>Budget Number:</b> 12345<br>
+                    <b>Tuition Number:</b> T12345<br>
+                    <b>Comments:</b> None<br>
+                    <b>Award Status:</b> Approved<br>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="submit-btn" disabled>SUBMIT SELECTED AWARDS</button>
+    <button id="add-new-std">Add New Student</button>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
