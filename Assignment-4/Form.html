@@ -65,6 +65,20 @@
             padding: 8px;
             text-align: left
         }
+        
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus {
+            outline: 2px solid #7aa7ff;
+            outline-offset: 2px
+        }
+        
+        button:hover:not([disabled]) {
+            background: #111;
+            color: #fff;
+            transition: .15s
+        }
     </style>
 </head>
 
@@ -310,11 +324,14 @@
                 required: "Fields with * must be filled before you can submit.",
                 address2: "Street Address 2 is optional; max 20 chars."
             };
-            f("aiBtn").addEventListener("click", () => {
-                const q = prompt("Ask a keyword (email, phone, zip, required, address2):", "");
-                if (!q) return;
-                alert(faq[q.toLowerCase()] || "Try one of: email, phone, zip, required, address2");
-            });
+            const aiBtn = f("aiBtn");
+            if (aiBtn) {
+                aiBtn.addEventListener("click", () => {
+                    const q = prompt("Ask a keyword (email, phone, zip, required, address2):", "");
+                    if (!q) return;
+                    alert(faq[q.toLowerCase()] || "Try one of: email, phone, zip, required, address2");
+                });
+            }
         </script>
 
     </main>
