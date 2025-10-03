@@ -2,339 +2,1027 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Feedback Form</title>
+    <title>Feedback</title>
     <style>
+        * {
+            box-sizing: border-box
+        }
+        
         body {
-            font-family: system-ui, Arial, sans-serif;
-            background: #f6f7fb;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
             margin: 0;
-            padding: 24px
-        }
-        
-        .card {
-            max-width: 720px;
-            margin: auto;
-            background: #fff;
-            border-radius: 12px;
             padding: 20px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, .08)
+            min-height: 100vh
         }
         
-        .row {
-            display: grid;
-            gap: 12px
+        #container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden
+        }
+        
+        main {
+            padding: 40px
+        }
+        
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300
+        }
+        
+        h3 {
+            color: #666;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 400
+        }
+        
+        .note {
+            background-color: #eef6ff;
+            padding: 15px;
+            border-left: 4px solid #0ea5e9;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            color: #0f172a
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px
         }
         
         label {
-            font-size: .95rem
+            min-width: 150px;
+            font-weight: 600;
+            color: #333;
+            margin-top: 8px
         }
         
-        input,
-        select,
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
         textarea,
-        button {
-            font: inherit;
-            padding: 10px;
-            border: 1px solid #d5d9e0;
-            border-radius: 8px
+        select {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all .3s ease;
+            background-color: #f1f5f9
         }
         
-        .error {
-            color: #c62828;
-            font-size: .85rem;
-            margin-top: 4px;
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, .15)
+        }
+        
+        input[type="text"]:invalid,
+        input[type="email"]:invalid,
+        input[type="tel"]:invalid,
+        textarea:invalid,
+        select:invalid {
+            border-color: #dc3545
+        }
+        
+        input[type="text"]:valid,
+        input[type="email"]:valid,
+        input[type="tel"]:valid,
+        textarea:valid,
+        select:valid {
+            border-color: #28a745
+        }
+        
+        .radio-group,
+        .checkbox-group {
+            flex: 1;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap
+        }
+        
+        .radio-item,
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px
+        }
+        
+        input[type="radio"],
+        input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: #0ea5e9
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px
+        }
+        
+        input[type="submit"],
+        input[type="reset"] {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease;
+            min-width: 120px
+        }
+        
+        input[type="submit"]:disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            opacity: .6;
+            transform: none
+        }
+        
+        input[type="submit"]:disabled:hover {
+            background: #6c757d;
+            transform: none;
+            box-shadow: none
+        }
+        
+        input[type="submit"] {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: #ffffff
+        }
+        
+        input[type="submit"]:hover {
+            background: linear-gradient(135deg, #0284c7, #4f46e5);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, .3)
+        }
+        
+        input[type="reset"] {
+            background: #334155;
+            color: #ffffff
+        }
+        
+        input[type="reset"]:hover {
+            background: #1f2937;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(51, 65, 85, .3)
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
             display: none
         }
         
-        button[disabled] {
-            opacity: .5;
-            cursor: not-allowed
+        .character-counter {
+            color: #64748b;
+            font-size: 12px;
+            margin-top: 3px;
+            text-align: right
         }
         
-        table {
+        .success-message {
+            background-color: #ecfdf5;
+            color: #065f46;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #a7f3d0;
+            display: none
+        }
+        
+        #dynamicCheckboxContainer {
+            margin-bottom: 25px
+        }
+        
+        .dynamic-checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px
+        }
+        
+        .dynamic-text-field {
+            margin-top: 10px
+        }
+        
+        .results-table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 16px
+            margin-top: 30px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .1)
         }
         
-        th,
-        td {
-            border: 1px solid #eee;
-            padding: 8px;
-            text-align: left
+        .results-table th,
+        .results-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e1e5e9
         }
         
-        input:focus,
-        select:focus,
-        textarea:focus,
-        button:focus {
-            outline: 2px solid #7aa7ff;
-            outline-offset: 2px
+        .results-table th {
+            background-color: #f1f5f9;
+            font-weight: 600;
+            color: #333
         }
         
-        button:hover:not([disabled]) {
-            background: #111;
-            color: #fff;
-            transition: .15s
+        .results-table tr:hover {
+            background-color: #f8fafc
+        }
+        
+        .ai-assistant-container {
+            text-align: right;
+            margin-bottom: 20px
+        }
+        
+        .ai-assistant-btn {
+            background: linear-gradient(135deg, #22c55e, #06b6d4);
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, .3)
+        }
+        
+        .ai-assistant-btn:hover {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, .4)
+        }
+        
+        .chat-window {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 500px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            border: 1px solid #e1e5e9
+        }
+        
+        .chat-header {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: #ffffff;
+            padding: 15px 20px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+        
+        .chat-header h4 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 600
+        }
+        
+        .close-chat-btn {
+            background: none;
+            border: none;
+            color: #ffffff;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color .3s ease
+        }
+        
+        .close-chat-btn:hover {
+            background-color: rgba(255, 255, 255, .2)
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background-color: #f1f5f9
+        }
+        
+        .message {
+            margin-bottom: 15px;
+            padding: 12px 16px;
+            border-radius: 18px;
+            max-width: 80%;
+            word-wrap: break-word
+        }
+        
+        .user-message {
+            background: linear-gradient(135deg, #0ea5e9, #6366f1);
+            color: #ffffff;
+            margin-left: auto;
+            text-align: right
+        }
+        
+        .bot-message {
+            background: #ffffff;
+            color: #333;
+            border: 1px solid #e1e5e9;
+            margin-right: auto
+        }
+        
+        .chat-input-container {
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 0 0 15px 15px;
+            display: flex;
+            gap: 10px
+        }
+        
+        .chat-input-container input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 2px solid #e1e5e9;
+            border-radius: 25px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color .3s ease
+        }
+        
+        .chat-input-container input:focus {
+            border-color: #0ea5e9
+        }
+        
+        .send-chat-btn {
+            background: linear-gradient(135deg, #22c55e, #06b6d4);
+            color: #ffffff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all .3s ease
+        }
+        
+        .send-chat-btn:hover {
+            background: linear-gradient(135deg, #06b6d4, #3b82f6);
+            transform: translateY(-1px)
+        }
+        
+        .chat-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, .5);
+            z-index: 999;
+            display: none
+        }
+        
+        @media (max-width:768px) {
+            .form-group {
+                flex-direction: column;
+                gap: 8px
+            }
+            label {
+                min-width: auto;
+                margin-top: 0
+            }
+            .radio-group,
+            .checkbox-group {
+                flex-direction: column;
+                gap: 10px
+            }
+            main {
+                padding: 20px
+            }
         }
     </style>
 </head>
 
 <body>
-    <main class="card">
-        <h1>Feedback Form</h1>
+    <div id="container">
+        <main>
+            <div class="ai-assistant-container">
+                <button id="aiAssistantBtn" class="ai-assistant-btn">🤖 AI Assistant</button>
+            </div>
 
-        <button type="button" id="aiBtn">🤖 AI Help</button>
+            <div id="chatWindow" class="chat-window">
+                <div class="chat-header">
+                    <h4>AI Assistant</h4>
+                    <button id="closeChatBtn" class="close-chat-btn">×</button>
+                </div>
+                <div id="chatMessages" class="chat-messages"></div>
+                <div class="chat-input-container">
+                    <input type="text" id="chatInput" placeholder="Ask me about the form..." />
+                    <button id="sendChatBtn" class="send-chat-btn">Send</button>
+                </div>
+            </div>
 
-        <form id="feedbackForm" novalidate class="row">
-            <div>
-                <label for="firstName">First name *</label>
-                <input id="firstName" required aria-required="true" />
-                <div class="error" id="err-firstName"></div>
-            </div>
-            <div>
-                <label for="lastName">Last name *</label>
-                <input id="lastName" required aria-required="true" />
-                <div class="error" id="err-lastName"></div>
-            </div>
-            <div>
-                <label for="emailId">Email (@northeastern.edu) *</label>
-                <input id="emailId" required aria-required="true" />
-                <div class="error" id="err-emailId"></div>
-            </div>
-            <div>
-                <label for="phoneNumber">Phone (XXX) XXX-XXXX *</label>
-                <input id="phoneNumber" required aria-required="true" />
-                <div class="error" id="err-phoneNumber"></div>
-            </div>
-            <div>
-                <label for="zipcode">Zip *</label>
-                <input id="zipcode" required aria-required="true" />
-                <div class="error" id="err-zipcode"></div>
-            </div>
-            <div>
-                <label for="streetAddress1">Street Address 1 *</label>
-                <input id="streetAddress1" required aria-required="true" />
-                <div class="error" id="err-streetAddress1"></div>
-            </div>
-            <div>
-                <label for="streetAddress2">Street Address 2 (optional, max 20)</label>
-                <input id="streetAddress2" maxlength="20" />
-                <div class="error" id="err-streetAddress2"></div>
-                <div id="addr2Count" style="font-size:.8rem;color:#555"></div>
-            </div>
-            <div>
-                <label for="category">Category *</label>
-                <select id="category" required aria-required="true">
-      <option value="">Select…</option>
-      <option>General</option><option>Support</option><option>Billing</option>
-      <option>Admissions</option><option>Housing</option>
-    </select>
-                <div class="error" id="err-category"></div>
-            </div>
-            <div id="dynamicArea"></div>
-            <div>
-                <label for="comments">Comments *</label>
-                <textarea id="comments" required aria-required="true" rows="4"></textarea>
-                <div class="error" id="err-comments"></div>
-            </div>
-            <div style="display:flex;gap:8px">
-                <button id="submitBtn" type="submit" disabled>Submit</button>
-                <button type="reset">Reset</button>
-            </div>
-        </form>
+            <h2>Feedback</h2>
+            <h3>Love something? Hate something? Let us know!</h3>
+            <div class="note">Note: Fields marked with an asterisk(*) are mandatory</div>
+            <div class="success-message" id="successMessage">Thank you for your feedback! We'll get back to you soon.</div>
 
-        <div id="results"></div>
+            <form method="post" novalidate id="feedbackForm">
+                <div class="form-group">
+                    <label for="title">Title*:</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="title" id="miss" value="miss" required/>
+                            <label for="miss">Miss</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="title" id="mr" value="mr" required/>
+                            <label for="mr">Mr.</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="title" id="mrs" value="mrs" required/>
+                            <label for="mrs">Mrs.</label>
+                        </div>
+                    </div>
+                </div>
 
-        <script>
-            const f = (id) => document.getElementById(id);
-            const patterns = {
-                name: /^[A-Za-z][A-Za-z\s'-]{1,49}$/,
-                email: /^[^@\s]+@northeastern\.edu$/i,
-                phone: /^\(\d{3}\)\s\d{3}-\d{4}$/,
-                zip: /^\d{5}(-\d{4})?$/
-            };
-            const req = (v) => v.trim().length > 0;
+                <div class="form-group">
+                    <label for="firstName">First Name*:</label>
+                    <input type="text" name="firstName" id="firstName" placeholder="First Name" required />
+                    <div class="error-message" id="firstNameError"></div>
+                </div>
 
-            function setErr(id, msg) {
-                const el = f("err-" + id);
-                if (!el) return;
-                el.textContent = msg || "";
-                el.style.display = msg ? "block" : "none";
-            }
+                <div class="form-group">
+                    <label for="lastName">Last Name*:</label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name" required />
+                    <div class="error-message" id="lastNameError"></div>
+                </div>
 
-            function validate() {
-                let ok = true;
-                [
-                    ["firstName", "First name"],
-                    ["lastName", "Last name"]
-                ].forEach(([id, label]) => {
-                    const v = f(id).value;
-                    const good = req(v) && patterns.name.test(v);
-                    setErr(id, good ? "" : `${label} must be letters (2–50).`);
-                    ok = ok && good;
-                }); {
-                    const v = f("emailId").value;
-                    const good = req(v) && patterns.email.test(v);
-                    setErr("emailId", good ? "" : "Use your @northeastern.edu email.");
-                    ok = ok && good;
-                } {
-                    const v = f("phoneNumber").value;
-                    const good = req(v) && patterns.phone.test(v);
-                    setErr("phoneNumber", good ? "" : "Format: (123) 456-7890");
-                    ok = ok && good;
-                } {
-                    const v = f("zipcode").value;
-                    const good = req(v) && patterns.zip.test(v);
-                    setErr("zipcode", good ? "" : "Zip must be 12345 or 12345-6789");
-                    ok = ok && good;
-                } {
-                    const v = f("streetAddress1").value;
-                    const good = req(v);
-                    setErr("streetAddress1", good ? "" : "Required.");
-                    ok = ok && good;
-                } {
-                    const v = f("category").value;
-                    const good = req(v);
-                    setErr("category", good ? "" : "Pick a category.");
-                    ok = ok && good;
-                } {
-                    const v = f("comments").value;
-                    const good = req(v) && v.trim().length >= 5;
-                    setErr("comments", good ? "" : "Enter at least 5 chars.");
-                    ok = ok && good;
+                <div class="form-group">
+                    <label for="emailId">Email Id*:</label>
+                    <input type="email" name="emailId" id="emailId" placeholder="yourname@northeastern.edu" required />
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phoneNumber">Phone Number*:</label>
+                    <input type="tel" name="phoneNumber" id="phoneNumber" placeholder="(XXX) XXX-XXXX" pattern="\([0-9]{3}\) [0-9]{3}-[0-9]{4}" required />
+                    <div class="error-message" id="phoneError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="zipcode">ZipCode*:</label>
+                    <input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" pattern="[0-9]{5}(-[0-9]{4})?" required />
+                    <div class="error-message" id="zipcodeError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="streetAddress2">Street Address 2:</label>
+                    <input type="text" name="streetAddress2" id="streetAddress2" placeholder="Apartment, suite, etc. (optional)" maxlength="20" />
+                    <div class="character-counter" id="streetAddress2Counter">0/20 characters used</div>
+                    <div class="error-message" id="streetAddress2Error"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="source">How did you hear*:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type='checkbox' name="source" value="facebook" id="facebook" />
+                            <label for="facebook">Facebook</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type='checkbox' name="source" value="google" id="google" />
+                            <label for="google">Google</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type='checkbox' name="source" value="yelp" id="yelp" />
+                            <label for="yelp">Yelp</label>
+                        </div>
+                    </div>
+                    <div class="error-message" id="sourceError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category*:</label>
+                    <select name="category" id="category" required>
+                        <option value="">Select a category</option>
+                        <option value="academic">Academic</option>
+                        <option value="research">Research</option>
+                        <option value="student-life">Student Life</option>
+                        <option value="facilities">Facilities</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <div class="error-message" id="categoryError"></div>
+                </div>
+
+                <div id="dynamicCheckboxContainer"></div>
+
+                <div class="form-group">
+                    <label for="comments">Comments*:</label>
+                    <textarea name="comments" id="comments" placeholder="Your comments" rows="5" cols="25" required></textarea>
+                    <div class="error-message" id="commentsError"></div>
+                </div>
+
+                <div class="button-group">
+                    <input type="submit" value="Submit" id="submitBtn" disabled>
+                    <input type="reset" value="Reset">
+                </div>
+            </form>
+
+            <div id="resultsContainer"></div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedbackForm');
+            const successMessage = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const dynamicContainer = document.getElementById('dynamicCheckboxContainer');
+            const resultsContainer = document.getElementById('resultsContainer');
+            let submittedData = [];
+            const aiAssistantBtn = document.getElementById('aiAssistantBtn');
+            const chatWindow = document.getElementById('chatWindow');
+            const closeChatBtn = document.getElementById('closeChatBtn');
+            const chatMessages = document.getElementById('chatMessages');
+            const chatInput = document.getElementById('chatInput');
+            const sendChatBtn = document.getElementById('sendChatBtn');
+            const faqs = [{
+                keywords: ['email', 'northeastern', '@northeastern.edu'],
+                question: 'What email can I use?',
+                answer: 'You must use your Northeastern email (example: student@northeastern.edu).'
+            }, {
+                keywords: ['phone', 'number', 'format', 'xxx', 'parentheses'],
+                question: 'What format should the phone number be?',
+                answer: 'The phone number must be in the format (XXX) XXX-XXXX.'
+            }, {
+                keywords: ['zip', 'zipcode', 'zip code', 'digits', '5'],
+                question: 'How many digits should the zip code have?',
+                answer: 'The zip code must be exactly 5 digits (or 5+4 format like 12345-6789).'
+            }, {
+                keywords: ['required', 'mandatory', 'fields', 'asterisk', '*'],
+                question: 'Which fields are required?',
+                answer: 'All fields are required except Street Address 2. Required fields are marked with an asterisk (*).'
+            }, {
+                keywords: ['address', 'street address 2', 'optional', 'mandatory'],
+                question: 'Is Street Address 2 mandatory?',
+                answer: 'No, Street Address 2 is optional. If left blank, it will remain empty in the results table.'
+            }];
+            const defaultResponse = "Sorry, I don't know that yet. Please check the instructions or try asking about email format, phone number, zip code, required fields, or Street Address 2.";
+            aiAssistantBtn.addEventListener('click', function() {
+                chatWindow.style.display = 'flex';
+                chatInput.focus();
+                if (chatMessages.children.length === 0) {
+                    addBotMessage("Hello! I'm your AI Assistant. I can help you with questions about this feedback form. Try asking me about email format, phone numbers, or required fields!")
                 }
-                const dyn = f("dynText");
-                if (dyn && dyn.hasAttribute("data-required")) {
-                    const good = req(dyn.value) && dyn.value.length >= 3;
-                    setErr("dynText", good ? "" : "Enter at least 3 chars.");
-                    ok = ok && good;
+            });
+            closeChatBtn.addEventListener('click', function() {
+                chatWindow.style.display = 'none'
+            });
+            chatWindow.addEventListener('click', function(e) {
+                if (e.target === chatWindow) {
+                    chatWindow.style.display = 'none'
                 }
-                f("submitBtn").disabled = !ok;
-            }
-            document.addEventListener("input", validate);
-            document.addEventListener("change", validate);
-            document.addEventListener("DOMContentLoaded", validate);
-
-            f("phoneNumber").addEventListener("input", (e) => {
-                const d = e.target.value.replace(/\D/g, "").slice(0, 10);
-                let out = d;
-                if (d.length > 6) out = `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
-                else if (d.length > 3) out = `(${d.slice(0,3)}) ${d.slice(3)}`;
-                else if (d.length > 0) out = `(${d}`;
-                e.target.value = out;
             });
-            f("zipcode").addEventListener("input", (e) => {
-                const d = e.target.value.replace(/\D/g, "").slice(0, 9);
-                e.target.value = d.length > 5 ? `${d.slice(0,5)}-${d.slice(5)}` : d;
-            });
-            const addr2 = f("streetAddress2"),
-                counter = f("addr2Count");
-            if (addr2 && counter) {
-                addr2.addEventListener("input", () => {
-                    counter.textContent = `${addr2.value.length}/20`;
-                });
-                counter.textContent = "0/20";
+
+            function sendMessage() {
+                const message = chatInput.value.trim();
+                if (message === '') return;
+                addUserMessage(message);
+                chatInput.value = '';
+                const response = findMatchingFAQ(message);
+                setTimeout(() => {
+                    addBotMessage(response)
+                }, 500);
             }
+            sendChatBtn.addEventListener('click', sendMessage);
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    sendMessage()
+                }
+            });
 
-            const dynamicArea = f("dynamicArea");
-
-            function renderDynamic(category) {
-                dynamicArea.innerHTML = "";
-                if (!category) return;
-                const wrap = document.createElement("div");
-                const cbId = "dynCheck";
-                wrap.innerHTML = `
-    <label style="display:flex;gap:8px;align-items:center">
-      <input type="checkbox" id="${cbId}"> Additional details for ${category}
-    </label>
-    <div id="dynTextWrap" style="margin-top:8px;display:none">
-      <label for="dynText">Please specify *</label>
-      <input id="dynText" />
-      <div class="error" id="err-dynText"></div>
-    </div>`;
-                dynamicArea.appendChild(wrap);
-                const cb = f(cbId);
-                const txtWrap = f("dynTextWrap");
-                const txt = f("dynText");
-                cb.addEventListener("change", () => {
-                    if (cb.checked) {
-                        txtWrap.style.display = "block";
-                        txt.setAttribute("data-required", "1");
-                    } else {
-                        txtWrap.style.display = "none";
-                        txt.removeAttribute("data-required");
-                        setErr("dynText", "");
+            function findMatchingFAQ(message) {
+                const lowerMessage = message.toLowerCase();
+                for (let faq of faqs) {
+                    for (let keyword of faq.keywords) {
+                        if (lowerMessage.includes(keyword.toLowerCase())) {
+                            return faq.answer
+                        }
                     }
-                    validate();
-                });
-            }
-            f("category").addEventListener("change", e => renderDynamic(e.target.value));
-
-            const submitted = [];
-
-            function renderTable() {
-                if (submitted.length === 0) {
-                    f("results").innerHTML = "";
-                    return;
                 }
-                const head = `<thead><tr><th>Time</th><th>First</th><th>Last</th><th>Email</th><th>Phone</th><th>Zip</th><th>Addr1</th><th>Addr2</th><th>Category</th><th>Details</th><th>Comments</th></tr></thead>`;
-                const rows = submitted.map(r => `<tr><td>${r.time}</td><td>${r.first}</td><td>${r.last}</td><td>${r.email}</td><td>${r.phone}</td><td>${r.zip}</td><td>${r.addr1}</td><td>${r.addr2||""}</td><td>${r.cat||""}</td><td>${r.details||""}</td><td>${r.comments}</td></tr>`).join("");
-                f("results").innerHTML = `<table>${head}<tbody>${rows}</tbody></table>`;
+                return defaultResponse;
             }
-            document.getElementById("feedbackForm").addEventListener("submit", (e) => {
-                e.preventDefault();
-                validate();
-                if (f("submitBtn").disabled) return;
-                submitted.push({
-                    time: new Date().toLocaleString(),
-                    first: f("firstName").value.trim(),
-                    last: f("lastName").value.trim(),
-                    email: f("emailId").value.trim(),
-                    phone: f("phoneNumber").value.trim(),
-                    zip: f("zipcode").value.trim(),
-                    addr1: f("streetAddress1").value.trim(),
-                    addr2: f("streetAddress2").value.trim(),
-                    cat: f("category").value,
-                    details: (f("dynText") && f("dynText").hasAttribute("data-required")) ? f("dynText").value.trim() : "",
-                    comments: f("comments").value.trim()
-                });
-                renderTable();
-                e.target.reset();
-                dynamicArea.innerHTML = "";
-                if (counter) counter.textContent = "0/20";
-                validate();
-            });
-            document.getElementById("feedbackForm").addEventListener("reset", () => {
-                dynamicArea.innerHTML = "";
-                document.querySelectorAll(".error").forEach(e => {
-                    e.textContent = "";
-                    e.style.display = "none";
-                });
-                if (counter) counter.textContent = "0/20";
-                setTimeout(validate, 0);
-            });
 
-            const faq = {
-                email: "Use your @northeastern.edu email only.",
-                phone: "Phone must be in format (123) 456-7890.",
-                zip: "Zip can be 12345 or 12345-6789.",
-                required: "Fields with * must be filled before you can submit.",
-                address2: "Street Address 2 is optional; max 20 chars."
+            function addUserMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message user-message';
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+
+            function addBotMessage(message) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = 'message bot-message';
+                messageDiv.textContent = message;
+                chatMessages.appendChild(messageDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            const patterns = {
+                phone: /^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$/,
+                zipcode: /^[0-9]{5}(-[0-9]{4})?$/,
+                email: /^[^\s@]+@northeastern\.edu$/,
+                alphanumeric: /^[a-zA-Z0-9\s]+$/
             };
-            const aiBtn = f("aiBtn");
-            if (aiBtn) {
-                aiBtn.addEventListener("click", () => {
-                    const q = prompt("Ask a keyword (email, phone, zip, required, address2):", "");
-                    if (!q) return;
-                    alert(faq[q.toLowerCase()] || "Try one of: email, phone, zip, required, address2");
+            const errorMessages = {
+                required: 'This field is required',
+                invalidEmail: 'Please enter a valid @northeastern.edu email address',
+                invalidPhone: 'Please enter a valid phone number (XXX) XXX-XXXX',
+                invalidZipcode: 'Please enter a valid zipcode (xxxxx or xxxxx-xxxx)',
+                minLength: 'This field must be at least 2 characters long',
+                maxLength: 'This field must not exceed 50 characters',
+                alphanumericOnly: 'This field can only contain letters, numbers, and spaces',
+                sourceRequired: 'Please select at least one option'
+            };
+
+            function showError(fieldId, message) {
+                const errorElement = document.getElementById(fieldId + 'Error');
+                if (errorElement) {
+                    errorElement.textContent = message;
+                    errorElement.style.display = 'block'
+                }
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.style.borderColor = '#dc3545'
+                }
+            }
+
+            function hideError(fieldId) {
+                const errorElement = document.getElementById(fieldId + 'Error');
+                if (errorElement) {
+                    errorElement.style.display = 'none'
+                }
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.style.borderColor = '#e1e5e9'
+                }
+            }
+
+            function validateField(fieldId, value, type) {
+                hideError(fieldId);
+                if (!value.trim()) {
+                    showError(fieldId, errorMessages.required);
+                    return false
+                }
+                if (value.trim().length > 50) {
+                    showError(fieldId, errorMessages.maxLength);
+                    return false
+                }
+                switch (type) {
+                    case 'email':
+                        if (!patterns.email.test(value)) {
+                            showError(fieldId, errorMessages.invalidEmail);
+                            return false
+                        }
+                        break;
+                    case 'phone':
+                        if (!patterns.phone.test(value)) {
+                            showError(fieldId, errorMessages.invalidPhone);
+                            return false
+                        }
+                        break;
+                    case 'zipcode':
+                        if (!patterns.zipcode.test(value)) {
+                            showError(fieldId, errorMessages.invalidZipcode);
+                            return false
+                        }
+                        break;
+                    case 'text':
+                        if (value.trim().length < 2) {
+                            showError(fieldId, errorMessages.minLength);
+                            return false
+                        }
+                        break;
+                    case 'alphanumeric':
+                        if (value.trim().length < 2) {
+                            showError(fieldId, errorMessages.minLength);
+                            return false
+                        }
+                        if (!patterns.alphanumeric.test(value)) {
+                            showError(fieldId, errorMessages.alphanumericOnly);
+                            return false
+                        }
+                        break;
+                    case 'select':
+                        if (!value || value === '') {
+                            showError(fieldId, errorMessages.required);
+                            return false
+                        }
+                        break;
+                }
+                return true;
+            }
+
+            function validateCheckboxes() {
+                const checkboxes = document.querySelectorAll('input[name="source"]');
+                const checked = Array.from(checkboxes).some(cb => cb.checked);
+                if (!checked) {
+                    showError('source', errorMessages.sourceRequired);
+                    return false
+                } else {
+                    hideError('source');
+                    return true
+                }
+            }
+
+            function isFormValid() {
+                const fields = {
+                    firstName: 'alphanumeric',
+                    lastName: 'alphanumeric',
+                    emailId: 'email',
+                    phoneNumber: 'phone',
+                    zipcode: 'zipcode',
+                    category: 'select',
+                    comments: 'text'
+                };
+                for (const [fieldId, type] of Object.entries(fields)) {
+                    const field = document.getElementById(fieldId);
+                    if (!field || !field.value.trim()) return false;
+                    if (field.value.trim().length > 50) return false;
+                    if (type === 'email' && !patterns.email.test(field.value)) return false;
+                    if (type === 'phone' && !patterns.phone.test(field.value)) return false;
+                    if (type === 'zipcode' && !patterns.zipcode.test(field.value)) return false;
+                    if (type === 'text' && field.value.trim().length < 2) return false;
+                    if (type === 'alphanumeric') {
+                        if (field.value.trim().length < 2) return false;
+                        if (!patterns.alphanumeric.test(field.value)) return false;
+                    }
+                    if (type === 'select') {
+                        if (!field.value || field.value === '') return false
+                    }
+                }
+                const checkboxes = document.querySelectorAll('input[name="source"]');
+                const checked = Array.from(checkboxes).some(cb => cb.checked);
+                if (!checked) return false;
+                return true;
+            }
+
+            function updateSubmitButton() {
+                submitBtn.disabled = !isFormValid()
+            }
+            const fieldsMap = {
+                firstName: 'alphanumeric',
+                lastName: 'alphanumeric',
+                emailId: 'email',
+                phoneNumber: 'phone',
+                zipcode: 'zipcode',
+                category: 'select',
+                comments: 'text'
+            };
+            Object.keys(fieldsMap).forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (field) {
+                    field.addEventListener('blur', function() {
+                        validateField(fieldId, this.value, fieldsMap[fieldId]);
+                        updateSubmitButton()
+                    });
+                    field.addEventListener('input', function() {
+                        if (this.value.trim()) {
+                            hideError(fieldId)
+                        }
+                        updateSubmitButton()
+                    });
+                }
+            });
+            const sourceCheckboxes = document.querySelectorAll('input[name="source"]');
+            sourceCheckboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    validateCheckboxes();
+                    updateSubmitButton()
+                })
+            });
+            const categorySelect = document.getElementById('category');
+            if (categorySelect) {
+                categorySelect.addEventListener('change', function() {
+                    updateSubmitButton();
+                    createDynamicCheckbox(this.value)
+                })
+            }
+
+            function createDynamicCheckbox(category) {
+                dynamicContainer.innerHTML = '';
+                if (category && category !== '') {
+                    const checkboxGroup = document.createElement('div');
+                    checkboxGroup.className = 'form-group';
+                    const checkboxContainer = document.createElement('div');
+                    checkboxContainer.className = 'dynamic-checkbox-group';
+                    const checkbox = document.createElement('input');
+                    checkbox.type = 'checkbox';
+                    checkbox.id = 'dynamicCheckbox';
+                    checkbox.name = 'dynamicCheckbox';
+                    const label = document.createElement('label');
+                    label.htmlFor = 'dynamicCheckbox';
+                    label.textContent = `Additional details for ${category}`;
+                    checkboxContainer.appendChild(checkbox);
+                    checkboxContainer.appendChild(label);
+                    checkboxGroup.appendChild(checkboxContainer);
+                    const textFieldContainer = document.createElement('div');
+                    textFieldContainer.className = 'dynamic-text-field';
+                    textFieldContainer.style.display = 'none';
+                    const textField = document.createElement('input');
+                    textField.type = 'text';
+                    textField.id = 'dynamicTextField';
+                    textField.name = 'dynamicTextField';
+                    textField.placeholder = `Enter additional details for ${category}`;
+                    const errorDiv = document.createElement('div');
+                    errorDiv.className = 'error-message';
+                    errorDiv.id = 'dynamicTextFieldError';
+                    textFieldContainer.appendChild(textField);
+                    textFieldContainer.appendChild(errorDiv);
+                    checkboxGroup.appendChild(textFieldContainer);
+                    dynamicContainer.appendChild(checkboxGroup);
+                    checkbox.addEventListener('change', function() {
+                        if (this.checked) {
+                            textFieldContainer.style.display = 'block';
+                            textField.required = true
+                        } else {
+                            textFieldContainer.style.display = 'none';
+                            textField.required = false;
+                            textField.value = '';
+                            hideError('dynamicTextField')
+                        }
+                        updateSubmitButton()
+                    });
+                    textField.addEventListener('input', function() {
+                        if (this.value.trim()) {
+                            hideError('dynamicTextField')
+                        }
+                        updateSubmitButton()
+                    });
+                    textField.addEventListener('blur', function() {
+                        if (this.required && this.value.trim()) {
+                            validateField('dynamicTextField', this.value, 'text')
+                        }
+                        updateSubmitButton()
+                    });
+                }
+            }
+
+            function createResultsTable() {
+                if (submittedData.length === 0) return;
+                let tableHTML = '<h3>Submitted Feedback Data</h3><table class="results-table"><thead><tr>';
+                tableHTML += '<th>Title</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone</th>';
+                tableHTML += '<th>Zipcode</th><th>Street Address 2</th><th>How did you hear</th><th>Category</th>';
+                tableHTML += '<th>Additional Details</th><th>Comments</th><th>Submitted At</th></tr></thead><tbody>';
+                submittedData.forEach((data) => {
+                    tableHTML += '<tr>';
+                    tableHTML += `<td>${data.title||''}</td>`;
+                    tableHTML += `<td>${data.firstName||''}</td>`;
+                    tableHTML += `<td>${data.lastName||''}</td>`;
+                    tableHTML += `<td>${data.emailId||''}</td>`;
+                    tableHTML += `<td>${data.phoneNumber||''}</td>`;
+                    tableHTML += `<td>${data.zipcode||''}</td>`;
+                    tableHTML += `<td>${data.streetAddress2||''}</td>`;
+                    tableHTML += `<td>${Array.isArray(data.source)?data.source.join(', '):data.source||''}</td>`;
+                    tableHTML += `<td>${data.category||''}</td>`;
+                    tableHTML += `<td>${data.dynamicTextField||''}</td>`;
+                    tableHTML += `<td>${data.comments||''}</td>`;
+                    tableHTML += `<td>${data.submittedAt||''}</td>`;
+                    tableHTML += '</tr>';
+                });
+                tableHTML += '</tbody></table>';
+                resultsContainer.innerHTML = tableHTML;
+            }
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                let isValid = true;
+                Object.keys(fieldsMap).forEach(fieldId => {
+                    const field = document.getElementById(fieldId);
+                    if (field && !validateField(fieldId, field.value, fieldsMap[fieldId])) {
+                        isValid = false
+                    }
+                });
+                if (!validateCheckboxes()) {
+                    isValid = false
+                }
+                if (isValid) {
+                    const formData = new FormData(form);
+                    const data = {};
+                    for (let [key, value] of formData.entries()) {
+                        data[key] = value
+                    }
+                    const checkedBoxes = document.querySelectorAll('input[name="source"]:checked');
+                    data.source = Array.from(checkedBoxes).map(cb => cb.value);
+                    const dynamicTextField = document.getElementById('dynamicTextField');
+                    if (dynamicTextField && dynamicTextField.value.trim()) {
+                        data.dynamicTextField = dynamicTextField.value
+                    }
+                    data.submittedAt = new Date().toLocaleString();
+                    submittedData.push(data);
+                    createResultsTable();
+                    form.reset();
+                    dynamicContainer.innerHTML = '';
+                    successMessage.style.display = 'none';
+                    form.style.display = 'block';
+                    submitBtn.disabled = true;
+                    resultsContainer.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                } else {
+                    const firstError = document.querySelector('.error-message[style*="block"]');
+                    if (firstError) {
+                        firstError.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        })
+                    }
+                }
+            });
+            form.addEventListener('reset', function() {
+                document.querySelectorAll('.error-message').forEach(error => {
+                    error.style.display = 'none'
+                });
+                document.querySelectorAll('input, textarea, select').forEach(field => {
+                    field.style.borderColor = '#e1e5e9'
+                });
+                successMessage.style.display = 'none';
+                form.style.display = 'block';
+                dynamicContainer.innerHTML = '';
+                submitBtn.disabled = true;
+            });
+            const phoneField = document.getElementById('phoneNumber');
+            if (phoneField) {
+                phoneField.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length >= 6) {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3, 6) + '-' + value.slice(6, 10)
+                    } else if (value.length >= 3) {
+                        value = '(' + value.slice(0, 3) + ') ' + value.slice(3)
+                    } else if (value.length > 0) {
+                        value = '(' + value
+                    }
+                    e.target.value = value;
+                    updateSubmitButton();
                 });
             }
-        </script>
-
-    </main>
+            const zipcodeField = document.getElementById('zipcode');
+            if (zipcodeField) {
+                zipcodeField.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (value.length > 5) {
+                        value = value.slice(0, 5) + '-' + value.slice(5, 9)
+                    }
+                    e.target.value = value;
+                    updateSubmitButton();
+                });
+            }
+            const streetAddress2Field = document.getElementById('streetAddress2');
+            const streetAddress2Counter = document.getElementById('streetAddress2Counter');
+            if (streetAddress2Field && streetAddress2Counter) {
+                streetAddress2Field.addEventListener('input', function(e) {
+                    const currentLength = e.target.value.length;
+                    const maxLength = 20;
+                    streetAddress2Counter.textContent = `${currentLength}/${maxLength} characters used`;
+                    if (currentLength >= maxLength * 0.9) {
+                        streetAddress2Counter.style.color = '#dc3545'
+                    } else if (currentLength >= maxLength * 0.8) {
+                        streetAddress2Counter.style.color = '#f59e0b'
+                    } else {
+                        streetAddress2Counter.style.color = '#64748b'
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>
