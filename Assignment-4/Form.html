@@ -75,65 +75,55 @@
         <form id="feedbackForm" novalidate class="row">
             <div>
                 <label for="firstName">First name *</label>
-                <input id="firstName" required />
+                <input id="firstName" required aria-required="true" />
                 <div class="error" id="err-firstName"></div>
             </div>
-
             <div>
                 <label for="lastName">Last name *</label>
-                <input id="lastName" required />
+                <input id="lastName" required aria-required="true" />
                 <div class="error" id="err-lastName"></div>
             </div>
-
             <div>
                 <label for="emailId">Email (@northeastern.edu) *</label>
-                <input id="emailId" required />
+                <input id="emailId" required aria-required="true" />
                 <div class="error" id="err-emailId"></div>
             </div>
-
             <div>
                 <label for="phoneNumber">Phone (XXX) XXX-XXXX *</label>
-                <input id="phoneNumber" required />
+                <input id="phoneNumber" required aria-required="true" />
                 <div class="error" id="err-phoneNumber"></div>
             </div>
-
             <div>
                 <label for="zipcode">Zip *</label>
-                <input id="zipcode" required />
+                <input id="zipcode" required aria-required="true" />
                 <div class="error" id="err-zipcode"></div>
             </div>
-
             <div>
                 <label for="streetAddress1">Street Address 1 *</label>
-                <input id="streetAddress1" required />
+                <input id="streetAddress1" required aria-required="true" />
                 <div class="error" id="err-streetAddress1"></div>
             </div>
-
             <div>
                 <label for="streetAddress2">Street Address 2 (optional, max 20)</label>
                 <input id="streetAddress2" maxlength="20" />
                 <div class="error" id="err-streetAddress2"></div>
                 <div id="addr2Count" style="font-size:.8rem;color:#555"></div>
             </div>
-
             <div>
                 <label for="category">Category *</label>
-                <select id="category" required>
+                <select id="category" required aria-required="true">
       <option value="">Select…</option>
       <option>General</option><option>Support</option><option>Billing</option>
       <option>Admissions</option><option>Housing</option>
     </select>
                 <div class="error" id="err-category"></div>
             </div>
-
             <div id="dynamicArea"></div>
-
             <div>
                 <label for="comments">Comments *</label>
-                <textarea id="comments" required rows="4"></textarea>
+                <textarea id="comments" required aria-required="true" rows="4"></textarea>
                 <div class="error" id="err-comments"></div>
             </div>
-
             <div style="display:flex;gap:8px">
                 <button id="submitBtn" type="submit" disabled>Submit</button>
                 <button type="reset">Reset</button>
@@ -141,9 +131,78 @@
         </form>
 
         <div id="results"></div>
+
         <script>
-            // wiring later
+            const f = (id) => document.getElementById(id);
+            const patterns = {
+                name: /^[A-Za-z][A-Za-z\s'-]{1,49}$/,
+                email: /^[^@\s]+@northeastern\.edu$/i,
+                phone: /^\(\d{3}\)\s\d{3}-\d{4}$/,
+                zip: /^\d{5}(-\d{4})?$/
+            };
+            const req = (v) => v.trim().length > 0;
+
+            function setErr(id, msg) {
+                const el = f("err-" + id);
+                if (!el) return;
+                el.textContent = msg || "";
+                el.style.display = msg ? "block" : "none";
+            }
+
+            function validate() {
+                let ok = true;
+                [
+                    ["firstName", "First name"],
+                    ["lastName", "Last name"]
+                ].forEach(([id, label]) => {
+                    const v = f(id).value;
+                    const good = req(v) && patterns.name.test(v);
+                    setErr(id, good ? "" : `${label} must be letters (2–50).`);
+                    ok = ok && good;
+                }); {
+                    const v = f("emailId").value;
+                    const good = req(v) && patterns.email.test(v);
+                    setErr("emailId", good ? "" : "Use your @northeastern.edu email.");
+                    ok = ok && good;
+                } {
+                    const v = f("phoneNumber").value;
+                    const good = req(v) && patterns.phone.test(v);
+                    setErr("phoneNumber", good ? "" : "Format: (123) 456-7890");
+                    ok = ok && good;
+                } {
+                    const v = f("zipcode").value;
+                    const good = req(v) && patterns.zip.test(v);
+                    setErr("zipcode", good ? "" : "Zip must be 12345 or 12345-6789");
+                    ok = ok && good;
+                } {
+                    const v = f("streetAddress1").value;
+                    const good = req(v);
+                    setErr("streetAddress1", good ? "" : "Required.");
+                    ok = ok && good;
+                } {
+                    const v = f("category").value;
+                    const good = req(v);
+                    setErr("category", good ? "" : "Pick a category.");
+                    ok = ok && good;
+                } {
+                    const v = f("comments").value;
+                    const good = req(v) && v.trim().length >= 5;
+                    setErr("comments", good ? "" : "Enter at least 5 chars.");
+                    ok = ok && good;
+                }
+                const dyn = f("dynText");
+                if (dyn && dyn.hasAttribute("data-required")) {
+                    const good = req(dyn.value) && dyn.value.length >= 3;
+                    setErr("dynText", good ? "" : "Enter at least 3 chars.");
+                    ok = ok && good;
+                }
+                f("submitBtn").disabled = !ok;
+            }
+            document.addEventListener("input", validate);
+            document.addEventListener("change", validate);
+            document.addEventListener("DOMContentLoaded", validate);
         </script>
+
     </main>
 </body>
 
