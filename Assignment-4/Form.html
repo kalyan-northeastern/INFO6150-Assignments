@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Feedback Form</title>
     <style>
         body {
@@ -41,16 +41,16 @@
             border-radius: 8px
         }
         
-        button[disabled] {
-            opacity: .5;
-            cursor: not-allowed
-        }
-        
         .error {
             color: #c62828;
             font-size: .85rem;
             margin-top: 4px;
             display: none
+        }
+        
+        button[disabled] {
+            opacity: .5;
+            cursor: not-allowed
         }
         
         table {
@@ -71,7 +71,79 @@
 <body>
     <main class="card">
         <h1>Feedback Form</h1>
-        <!-- content will grow in later commits -->
+
+        <form id="feedbackForm" novalidate class="row">
+            <div>
+                <label for="firstName">First name *</label>
+                <input id="firstName" required />
+                <div class="error" id="err-firstName"></div>
+            </div>
+
+            <div>
+                <label for="lastName">Last name *</label>
+                <input id="lastName" required />
+                <div class="error" id="err-lastName"></div>
+            </div>
+
+            <div>
+                <label for="emailId">Email (@northeastern.edu) *</label>
+                <input id="emailId" required />
+                <div class="error" id="err-emailId"></div>
+            </div>
+
+            <div>
+                <label for="phoneNumber">Phone (XXX) XXX-XXXX *</label>
+                <input id="phoneNumber" required />
+                <div class="error" id="err-phoneNumber"></div>
+            </div>
+
+            <div>
+                <label for="zipcode">Zip *</label>
+                <input id="zipcode" required />
+                <div class="error" id="err-zipcode"></div>
+            </div>
+
+            <div>
+                <label for="streetAddress1">Street Address 1 *</label>
+                <input id="streetAddress1" required />
+                <div class="error" id="err-streetAddress1"></div>
+            </div>
+
+            <div>
+                <label for="streetAddress2">Street Address 2 (optional, max 20)</label>
+                <input id="streetAddress2" maxlength="20" />
+                <div class="error" id="err-streetAddress2"></div>
+                <div id="addr2Count" style="font-size:.8rem;color:#555"></div>
+            </div>
+
+            <div>
+                <label for="category">Category *</label>
+                <select id="category" required>
+      <option value="">Select…</option>
+      <option>General</option><option>Support</option><option>Billing</option>
+      <option>Admissions</option><option>Housing</option>
+    </select>
+                <div class="error" id="err-category"></div>
+            </div>
+
+            <div id="dynamicArea"></div>
+
+            <div>
+                <label for="comments">Comments *</label>
+                <textarea id="comments" required rows="4"></textarea>
+                <div class="error" id="err-comments"></div>
+            </div>
+
+            <div style="display:flex;gap:8px">
+                <button id="submitBtn" type="submit" disabled>Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+
+        <div id="results"></div>
+        <script>
+            // wiring later
+        </script>
     </main>
 </body>
 
