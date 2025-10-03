@@ -256,6 +256,50 @@
                 });
             }
             f("category").addEventListener("change", e => renderDynamic(e.target.value));
+
+            const submitted = [];
+
+            function renderTable() {
+                if (submitted.length === 0) {
+                    f("results").innerHTML = "";
+                    return;
+                }
+                const head = `<thead><tr><th>Time</th><th>First</th><th>Last</th><th>Email</th><th>Phone</th><th>Zip</th><th>Addr1</th><th>Addr2</th><th>Category</th><th>Details</th><th>Comments</th></tr></thead>`;
+                const rows = submitted.map(r => `<tr><td>${r.time}</td><td>${r.first}</td><td>${r.last}</td><td>${r.email}</td><td>${r.phone}</td><td>${r.zip}</td><td>${r.addr1}</td><td>${r.addr2||""}</td><td>${r.cat||""}</td><td>${r.details||""}</td><td>${r.comments}</td></tr>`).join("");
+                f("results").innerHTML = `<table>${head}<tbody>${rows}</tbody></table>`;
+            }
+            document.getElementById("feedbackForm").addEventListener("submit", (e) => {
+                e.preventDefault();
+                validate();
+                if (f("submitBtn").disabled) return;
+                submitted.push({
+                    time: new Date().toLocaleString(),
+                    first: f("firstName").value.trim(),
+                    last: f("lastName").value.trim(),
+                    email: f("emailId").value.trim(),
+                    phone: f("phoneNumber").value.trim(),
+                    zip: f("zipcode").value.trim(),
+                    addr1: f("streetAddress1").value.trim(),
+                    addr2: f("streetAddress2").value.trim(),
+                    cat: f("category").value,
+                    details: (f("dynText") && f("dynText").hasAttribute("data-required")) ? f("dynText").value.trim() : "",
+                    comments: f("comments").value.trim()
+                });
+                renderTable();
+                e.target.reset();
+                dynamicArea.innerHTML = "";
+                if (counter) counter.textContent = "0/20";
+                validate();
+            });
+            document.getElementById("feedbackForm").addEventListener("reset", () => {
+                dynamicArea.innerHTML = "";
+                document.querySelectorAll(".error").forEach(e => {
+                    e.textContent = "";
+                    e.style.display = "none";
+                });
+                if (counter) counter.textContent = "0/20";
+                setTimeout(validate, 0);
+            });
         </script>
 
     </main>
