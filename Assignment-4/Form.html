@@ -72,6 +72,8 @@
     <main class="card">
         <h1>Feedback Form</h1>
 
+        <button type="button" id="aiBtn">🤖 AI Help</button>
+
         <form id="feedbackForm" novalidate class="row">
             <div>
                 <label for="firstName">First name *</label>
@@ -299,6 +301,19 @@
                 });
                 if (counter) counter.textContent = "0/20";
                 setTimeout(validate, 0);
+            });
+
+            const faq = {
+                email: "Use your @northeastern.edu email only.",
+                phone: "Phone must be in format (123) 456-7890.",
+                zip: "Zip can be 12345 or 12345-6789.",
+                required: "Fields with * must be filled before you can submit.",
+                address2: "Street Address 2 is optional; max 20 chars."
+            };
+            f("aiBtn").addEventListener("click", () => {
+                const q = prompt("Ask a keyword (email, phone, zip, required, address2):", "");
+                if (!q) return;
+                alert(faq[q.toLowerCase()] || "Try one of: email, phone, zip, required, address2");
             });
         </script>
 
