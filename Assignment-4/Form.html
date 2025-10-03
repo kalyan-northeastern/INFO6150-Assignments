@@ -201,6 +201,27 @@
             document.addEventListener("input", validate);
             document.addEventListener("change", validate);
             document.addEventListener("DOMContentLoaded", validate);
+
+            f("phoneNumber").addEventListener("input", (e) => {
+                const d = e.target.value.replace(/\D/g, "").slice(0, 10);
+                let out = d;
+                if (d.length > 6) out = `(${d.slice(0,3)}) ${d.slice(3,6)}-${d.slice(6)}`;
+                else if (d.length > 3) out = `(${d.slice(0,3)}) ${d.slice(3)}`;
+                else if (d.length > 0) out = `(${d}`;
+                e.target.value = out;
+            });
+            f("zipcode").addEventListener("input", (e) => {
+                const d = e.target.value.replace(/\D/g, "").slice(0, 9);
+                e.target.value = d.length > 5 ? `${d.slice(0,5)}-${d.slice(5)}` : d;
+            });
+            const addr2 = f("streetAddress2"),
+                counter = f("addr2Count");
+            if (addr2 && counter) {
+                addr2.addEventListener("input", () => {
+                    counter.textContent = `${addr2.value.length}/20`;
+                });
+                counter.textContent = "0/20";
+            }
         </script>
 
     </main>
