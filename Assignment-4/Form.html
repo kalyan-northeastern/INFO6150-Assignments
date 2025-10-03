@@ -222,6 +222,40 @@
                 });
                 counter.textContent = "0/20";
             }
+
+            const dynamicArea = f("dynamicArea");
+
+            function renderDynamic(category) {
+                dynamicArea.innerHTML = "";
+                if (!category) return;
+                const wrap = document.createElement("div");
+                const cbId = "dynCheck";
+                wrap.innerHTML = `
+    <label style="display:flex;gap:8px;align-items:center">
+      <input type="checkbox" id="${cbId}"> Additional details for ${category}
+    </label>
+    <div id="dynTextWrap" style="margin-top:8px;display:none">
+      <label for="dynText">Please specify *</label>
+      <input id="dynText" />
+      <div class="error" id="err-dynText"></div>
+    </div>`;
+                dynamicArea.appendChild(wrap);
+                const cb = f(cbId);
+                const txtWrap = f("dynTextWrap");
+                const txt = f("dynText");
+                cb.addEventListener("change", () => {
+                    if (cb.checked) {
+                        txtWrap.style.display = "block";
+                        txt.setAttribute("data-required", "1");
+                    } else {
+                        txtWrap.style.display = "none";
+                        txt.removeAttribute("data-required");
+                        setErr("dynText", "");
+                    }
+                    validate();
+                });
+            }
+            f("category").addEventListener("change", e => renderDynamic(e.target.value));
         </script>
 
     </main>
