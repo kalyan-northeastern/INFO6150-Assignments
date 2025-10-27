@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Stopwatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Event Stopwatch</h1>
+            <p class="subtitle">Track your activities with precision</p>
+        </header>
+
+        <!-- Timer Display -->
+        <div class="timer-section">
+            <div class="timer-display" id="timerDisplay">00:00:00</div>
+        </div>
+
+        <!-- Event Details Section -->
+        <div class="event-details-section">
+            <h2>Event Details</h2>
+            <form id="eventForm">
+                <div class="form-group">
+                    <label for="eventDate">Date:</label>
+                    <input type="date" id="eventDate" name="eventDate">
+                    <div class="error-message" id="dateError"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="eventName">Event Name:</label>
+                    <input type="text" id="eventName" name="eventName" placeholder="What are you timing?">
+                    <div class="error-message" id="eventNameError"></div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Control Buttons -->
+        <div class="control-buttons">
+            <button type="button" id="startBtn" class="control-btn start-btn">Start</button>
+            <button type="button" id="pauseBtn" class="control-btn pause-btn" disabled>Pause</button>
+            <button type="button" id="stopBtn" class="control-btn stop-btn" disabled>Stop & Save</button>
+            <button type="button" id="resetBtn" class="control-btn reset-btn">Reset</button>
+        </div>
+
+        <!-- Session History Section -->
+        <div class="history-section">
+            <h2>Session History</h2>
+            
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <label for="dateFilter">Filter by Date:</label>
+                <input type="date" id="dateFilter" name="dateFilter">
+                <button type="button" id="clearFilter" class="filter-btn">Clear Filter</button>
+            </div>
+
+            <!-- Statistics -->
+            <div class="statistics">
+                <div class="stat-item">
+                    <span class="stat-label">Total Sessions:</span>
+                    <span class="stat-value" id="totalSessions">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total Time:</span>
+                    <span class="stat-value" id="totalTime">00:00:00</span>
+                </div>
+            </div>
+
+            <!-- History List -->
+            <div class="history-list" id="historyList">
+                <div class="no-sessions">No sessions recorded yet</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="stopwatch.js"></script>
+</body>
+</html>
