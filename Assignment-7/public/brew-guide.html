@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brew Guide — Artisan Coffee Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/public/index.html" class="logo">Artisan Coffee</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/public/index.html">Home</a></li>
+          <li><a href="/public/brew-guide.html" class="is-active">Brew Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container narrow">
+        <h1 class="display">Brew better. Consistent and delicious.</h1>
+        <p>Master the fundamentals with step-by-step recipes using common brew methods.</p>
+      </div>
+    </section>
+
+    <section class="methods section">
+      <div class="container methods-grid">
+        <article class="method">
+          <h2>V60 Pour Over</h2>
+          <ul class="steps">
+            <li>Grind 18g coffee medium-fine.</li>
+            <li>Bloom with 40g water for 30s.</li>
+            <li>Pour to 300g by 1:45, finish at 2:30.</li>
+          </ul>
+        </article>
+        <article class="method">
+          <h2>Aeropress</h2>
+          <ul class="steps">
+            <li>Grind 15g medium.</li>
+            <li>Inverted: 200g water, 1 minute steep.</li>
+            <li>Flip and press over 30s.</li>
+          </ul>
+        </article>
+        <article class="method">
+          <h2>French Press</h2>
+          <ul class="steps">
+            <li>Grind 30g coarse.</li>
+            <li>500g water, steep 4 minutes.</li>
+            <li>Stir, skim, plunge gently.</li>
+          </ul>
+        </article>
+        <article class="method">
+          <h2>Espresso</h2>
+          <ul class="steps">
+            <li>18g in, 36g out, 25-30s.</li>
+            <li>Adjust grind for flow and taste.</li>
+            <li>Use fresh beans, dial in daily.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="cta section">
+      <div class="container cta-row">
+        <h2>Ready to brew? Try our seasonal box.</h2>
+        <a href="/public/index.html#featured" class="btn btn-primary">Shop Featured</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Artisan Coffee</strong>
+        <p class="dimmed">© <span id="year"></span> All rights reserved.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/public/index.html">Home</a></li>
+        <li><a href="/public/brew-guide.html" class="is-active">Brew Guide</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
