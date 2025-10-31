@@ -1,0 +1,27 @@
+@use "../utilities/mixins" as m;
+@use "../utilities/functions" as f;
+
+.page-hero { padding: f.rhythm(6) 0 f.rhythm(2); }
+
+.methods-grid {
+  @include m.grid(4, 1rem);
+  @include m.mq(1100px) { grid-template-columns: repeat(3, 1fr); }
+  @include m.mq(800px) { grid-template-columns: repeat(2, 1fr); }
+  @include m.mq(520px) { grid-template-columns: 1fr; }
+}
+
+.method {
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 1rem;
+}
+
+.steps { margin: 0; }
+
+.cta-row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1rem; padding: 1rem; border-radius: var(--radius);
+  background: linear-gradient(135deg, rgba(231,200,162,.2), rgba(139,94,52,.2));
+}
+

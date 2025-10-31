@@ -1,0 +1,31 @@
+@use "../utilities/mixins" as m;
+@use "../utilities/functions" as f;
+@use "../utilities/colors" as c;
+
+.hero {
+  padding: f.rhythm(8) 0;
+}
+
+.hero-grid {
+  @include m.grid(2, 2rem);
+  align-items: center;
+  @include m.mq(900px) { grid-template-columns: 1fr; }
+}
+
+.hero-copy p { color: var(--muted); }
+.hero-media img { border-radius: var(--radius); }
+
+.featured-grid { }
+
+.benefits-row {
+  display: flex; gap: 1rem; flex-wrap: wrap;
+}
+
+.benefit {
+  flex: 1 1 220px;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+

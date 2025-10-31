@@ -1,0 +1,19 @@
+@use "../utilities/functions" as f;
+@use "../utilities/colors" as c;
+
+body { font-family: map-get(c.$font-stacks, base); font-size: 16px; }
+
+.display {
+  font-family: map-get(c.$font-stacks, display);
+  font-size: f.clamp-fluid(2rem, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+h1, h2, h3 { font-family: map-get(c.$font-stacks, display); line-height: 1.2; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+
+.dimmed { color: var(--muted); }
+

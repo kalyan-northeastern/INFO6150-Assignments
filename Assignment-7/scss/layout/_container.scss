@@ -1,0 +1,5 @@
+@use "../utilities/mixins" as m;
+
+.container { @include m.container(1200px); }
+.narrow { @include m.container(780px); }
+
