@@ -1,0 +1,15 @@
+{
+  "name": "assignment-7-coffee-roasters",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Two-page website using CSS Grid, Flexbox, and advanced SASS/SCSS",
+  "scripts": {
+    "dev": "sass --watch scss/main.scss public/css/main.css --style=expanded",
+    "build": "sass scss/main.scss public/css/main.css --no-source-map --style=compressed",
+    "clean": "node -e \"require('fs').mkdirSync('public/css', { recursive: true });\""
+  },
+  "devDependencies": {
+    "sass": "^1.79.4"
+  }
+}
+
