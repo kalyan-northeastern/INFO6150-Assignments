@@ -1,0 +1,14 @@
+@use "../utilities/mixins" as m;
+@use "../utilities/functions" as f;
+
+.site-footer {
+  padding: f.rhythm(4) 0; border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.footer-grid {
+  @include m.grid(2, 1rem);
+  align-items: start;
+}
+
+.footer-links { list-style: none; padding: 0; margin: 0; display: flex; gap: 1rem; justify-self: end; }
+

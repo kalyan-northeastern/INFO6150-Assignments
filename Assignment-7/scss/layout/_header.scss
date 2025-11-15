@@ -1,0 +1,28 @@
+@use "../utilities/functions" as f;
+@use "../utilities/mixins" as m;
+@use "../utilities/colors" as c;
+
+.site-header {
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: blur(10px);
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: f.rhythm(2) 0;
+}
+
+.logo { font-weight: 700; letter-spacing: 0.02em; }
+
+.main-nav .nav-list {
+  display: flex; gap: 1rem; list-style: none; margin: 0; padding: 0;
+}
+
+.main-nav a {
+  padding: 0.5rem 0.75rem; border-radius: 8px; color: var(--text);
+}
+
+.main-nav a.is-active { background: rgba(255,255,255,0.08); }
+

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artisan Coffee Roasters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/public/index.html" class="logo">Artisan Coffee</a>
+      <nav class="main-nav" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/public/index.html" class="is-active">Home</a></li>
+          <li><a href="/public/brew-guide.html">Brew Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 class="display">Small-batch roasts. Big, nuanced flavors.</h1>
+          <p>Explore single-origin beans curated seasonally. Roasted fresh and shipped to your door.</p>
+          <div class="button-row">
+            <a href="#featured" class="btn btn-primary">Shop Featured</a>
+            <a href="/public/brew-guide.html" class="btn btn-ghost">Learn to Brew</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop" alt="Pour over coffee" />
+        </div>
+      </div>
+    </section>
+
+    <section id="featured" class="featured-grid section">
+      <div class="container">
+        <h2 class="section-title">Featured Origins</h2>
+        <div class="grid-cards">
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1461988625982-7e46a099bf4f?q=80&w=1200&auto=format&fit=crop" alt="Ethiopia beans">
+            <div class="card-body">
+              <h3>Yirgacheffe, Ethiopia</h3>
+              <p>Floral, citrus and bergamot with silky mouthfeel.</p>
+              <button class="btn btn-secondary">Add to Bag</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=1200&auto=format&fit=crop" alt="Colombia coffee">
+            <div class="card-body">
+              <h3>Huila, Colombia</h3>
+              <p>Balanced caramel sweetness with red apple acidity.</p>
+              <button class="btn btn-secondary">Add to Bag</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1529429612777-95a5a3e2e8fc?q=80&w=1200&auto=format&fit=crop" alt="Kenya coffee">
+            <div class="card-body">
+              <h3>Nyeri, Kenya</h3>
+              <p>Juicy blackcurrant, grapefruit and honey.</p>
+              <button class="btn btn-secondary">Add to Bag</button>
+            </div>
+          </article>
+          <article class="card">
+            <img src="https://images.unsplash.com/photo-1470167290877-7d5d3446de4c?q=80&w=1200&auto=format&fit=crop" alt="Guatemala coffee">
+            <div class="card-body">
+              <h3>Huehuetenango, Guatemala</h3>
+              <p>Cocoa, almond and citrus zest finish.</p>
+              <button class="btn btn-secondary">Add to Bag</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits section">
+      <div class="container benefits-row">
+        <div class="benefit">
+          <h3>Fresh Weekly Roasts</h3>
+          <p>We roast in small batches for optimal flavor clarity.</p>
+        </div>
+        <div class="benefit">
+          <h3>Sustainably Sourced</h3>
+          <p>We partner with farms for fair pricing and traceability.</p>
+        </div>
+        <div class="benefit">
+          <h3>Free Shipping Over $35</h3>
+          <p>Fast delivery from our roastery to your brew bar.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Artisan Coffee</strong>
+        <p class="dimmed">© <span id="year"></span> All rights reserved.</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="/public/index.html">Home</a></li>
+        <li><a href="/public/brew-guide.html">Brew Guide</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+

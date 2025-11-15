@@ -1,0 +1,20 @@
+@use "sass:math";
+@use "colors" as c;
+
+@function rhythm($units) {
+  @return math.div($units, 2) * 0.5rem;
+}
+
+@function color($key) {
+  @return map-get(c.$palette, $key);
+}
+
+@function contrast-color($bg) {
+  $luma: (0.2126 * red($bg) + 0.7152 * green($bg) + 0.0722 * blue($bg)) / 255;
+  @return if($luma > 0.6, #000, #fff);
+}
+
+@function clamp-fluid($min, $max) {
+  @return clamp(#{$min}, 1rem + 2vw, #{$max});
+}
+

@@ -1,0 +1,39 @@
+@forward "utilities/_index";
+@use "utilities/colors" as *;
+@use "utilities/mixins" as m;
+@use "utilities/functions" as f;
+@use "base/reset";
+@use "base/typography";
+@use "layout/container";
+@use "layout/header";
+@use "layout/footer";
+@use "components/buttons";
+@use "components/cards";
+@use "pages/home";
+@use "pages/brew";
+
+:root {
+  /* CSS Custom Properties used alongside SASS variables */
+  --brand: #{map-get($palette, brand)};
+  --surface: #{map-get($palette, surface)};
+  --text: #{map-get($palette, text)};
+  --muted: #{map-get($palette, muted)};
+  --radius: 14px;
+}
+
+body {
+  background: var(--surface);
+  color: var(--text);
+}
+
+/* Utility: spacing scale generated with loop and interpolation */
+@each $name, $space in $space-scale {
+  .m-#{$name} { margin: $space; }
+  .p-#{$name} { padding: $space; }
+}
+
+/* Generic section spacing */
+.section { padding: f.rhythm(6) 0; }
+.section-title { margin-bottom: f.rhythm(3); }
+
+

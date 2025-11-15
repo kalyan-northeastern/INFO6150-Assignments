@@ -1,0 +1,23 @@
+$palette: (
+  brand: #8b5e34,
+  brand-strong: #6f4521,
+  surface: #0f0e0d,
+  text: #f4efe9,
+  muted: #bfb7ae,
+  accent: #e7c8a2
+);
+
+$space-scale: (
+  xs: 0.25rem,
+  sm: 0.5rem,
+  md: 1rem,
+  lg: 1.5rem,
+  xl: 2rem,
+  xxl: 3rem
+);
+
+$font-stacks: (
+  display: ('Playfair Display', serif),
+  base: ('Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif)
+);
+
